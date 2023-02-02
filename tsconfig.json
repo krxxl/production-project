@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    // для того чтоб переменные нельзя было юзать без укаания типа
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "es5",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "moduleResolution": "node",
+    // чтоб ипользовать обычные импорты в вебпак конфиге вместо required
+    "esModuleInterop": true,
+    // для библ которые не подддерживают дефолт импорт и надо делать * as somthing, а мы пишем просто импорт самсинг
+    "allowSyntheticDefaultImports": true,
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
