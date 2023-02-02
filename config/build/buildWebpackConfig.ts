@@ -1,6 +1,5 @@
 import {BuildOptions} from "./types/config";
 import webpack from "webpack";
-import path from "path";
 import {buildPlugins} from "./buildPlugins";
 import {buildLoaders} from "./buildLoaders";
 import {buildResolves} from "./buildResolves";
@@ -22,7 +21,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
    rules: buildLoaders(options),
   },
   // для того чтоб не указывать разширения при инпорте ./component[.без]
-  resolve: buildResolves(),
+  resolve: buildResolves(options),
   // для того чтоб понимать где ошибка
   devtool: isDev ? 'inline-source-map' : undefined,
   devServer: isDev ? buildDevServer(options) : undefined,

@@ -12,6 +12,10 @@
     "esModuleInterop": true,
     // для библ которые не подддерживают дефолт импорт и надо делать * as somthing, а мы пишем просто импорт самсинг
     "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    }
   },
   "ts-node": {
     "compilerOptions": {
