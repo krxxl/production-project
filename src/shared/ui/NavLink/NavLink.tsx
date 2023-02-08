@@ -1,7 +1,7 @@
-import {FC} from "react";
+import { FC } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Link, LinkProps } from 'react-router-dom';
 import cls from './NavLink.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
-import {Link, LinkProps} from "react-router-dom";
 
 export enum NavLinkTheme {
   PRIMARY = 'primary',
@@ -12,10 +12,10 @@ interface NavLinkProps extends LinkProps{
   theme?: NavLinkTheme
 }
 
-export const NavLink: FC<NavLinkProps> = ({className, children, to, theme = NavLinkTheme.PRIMARY, ...otherProps}) => {
-  return (
-    <Link to={to} className={classNames(cls.NavLink, {}, [className, cls[theme]])} {...otherProps}>
-      {children}
-    </Link>
-  );
-};
+export const NavLink: FC<NavLinkProps> = ({
+  className, children, to, theme = NavLinkTheme.PRIMARY, ...otherProps
+}) => (
+  <Link to={to} className={classNames(cls.NavLink, {}, [className, cls[theme]])} {...otherProps}>
+    {children}
+  </Link>
+);
