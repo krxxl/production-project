@@ -43,7 +43,9 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
             // проверка на путь файла и если содержит модуль то тогда применять модули
             auto: (resPath: string) => Boolean(resPath.includes('.module.')),
             // имена обычных файлов не модульных
-            localIdentName: isDev ? '[path][name]__[local]--[hash:base64:8]' : '[hash:base64:8]',
+            localIdentName: isDev
+              ? '[path][name]__[local]--[hash:base64:8]'
+              : '[hash:base64:8]',
           },
         },
       }, // Compiles Sass to CSS

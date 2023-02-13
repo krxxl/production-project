@@ -13,9 +13,21 @@ interface NavLinkProps extends LinkProps{
 }
 
 export const NavLink: FC<NavLinkProps> = ({
-  className, children, to, theme = NavLinkTheme.PRIMARY, ...otherProps
+  className,
+  children,
+  to,
+  theme = NavLinkTheme.PRIMARY,
+  ...otherProps
 }) => (
-  <Link to={to} className={classNames(cls.NavLink, {}, [className, cls[theme]])} {...otherProps}>
+  <Link
+    to={to}
+    className={classNames(
+      cls.NavLink,
+      {},
+      [className, cls[theme]],
+    )}
+    {...otherProps}
+  >
     {children}
   </Link>
 );
