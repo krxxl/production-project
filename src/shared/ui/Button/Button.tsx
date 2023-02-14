@@ -16,6 +16,7 @@ export const Button: FC<ButtonProps> = ({
   className, children, theme, ...otherProps
 }) => (
   <button
+    data-testid="button"
     type="button"
     className={classNames(
       cls.Button,

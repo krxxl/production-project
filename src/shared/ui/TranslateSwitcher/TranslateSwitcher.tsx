@@ -12,7 +12,7 @@ export const TranslateSwitcher: FC<TranslateSwitcherProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
 
-  const onChangeLanguageHandler = () => {
+  const onChangeLanguageHandler = async () => {
     i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
   };
 

@@ -19,13 +19,15 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
     setCollapsed((prevState) => !prevState);
   };
   return (
-    <div className={classNames(
-      cls.Sidebar,
-      { [cls.collapsed]: collapsed },
-      [className],
-    )}
+    <div
+      data-testid="sidebar"
+      className={classNames(
+        cls.Sidebar,
+        { [cls.collapsed]: collapsed },
+        [className],
+      )}
     >
-      <Button theme={ButtonTheme.CLEAR} onClick={onCollapsedHandler}>
+      <Button data-testid="collapsed" theme={ButtonTheme.CLEAR} onClick={onCollapsedHandler}>
         {collapsed ? t('Показать') : t('Скрыть')}
       </Button>
       <div className={cls.switchers}>
