@@ -25,12 +25,16 @@ jobs:
         run: npm ci
       - name: build project
         run: npm run build:prod
+        if: always()
       - name: check eslint
         run: npm run lint:ts
+        if: always()
       - name: check stylelint
         run: npm run lint:scss
+        if: always()
       - name: start testing
         run: npm run test
+        if: always()
       - name: build storybook
         run: npm run storybook:build
       - name: ui testing

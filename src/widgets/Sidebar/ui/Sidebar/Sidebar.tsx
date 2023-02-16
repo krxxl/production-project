@@ -1,11 +1,13 @@
 import { FC, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
-import {
-  TranslateSwitcher,
-} from 'shared/ui/TranslateSwitcher/TranslateSwitcher';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { TranslateSwitcher } from 'shared/ui/TranslateSwitcher/TranslateSwitcher';
+import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
+import { NavLink, NavLinkTheme } from 'shared/ui/NavLink/NavLink';
+import About from 'shared/assets/icons/abouts.svg';
+import Main from 'shared/assets/icons/main.svg';
+import { RoutePath } from 'shared/config/router/routeConfig';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -27,12 +29,29 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
         [className],
       )}
     >
-      <Button data-testid="collapsed" theme={ButtonTheme.CLEAR} onClick={onCollapsedHandler}>
-        {collapsed ? t('Показать') : t('Скрыть')}
+      <div className={cls.links}>
+        <NavLink theme={NavLinkTheme.PRIMARY} to={RoutePath.main} className={cls.link}>
+          <Main className={cls.icon} />
+          <span className={cls.title}>{t('Главная')}</span>
+        </NavLink>
+        <NavLink theme={NavLinkTheme.PRIMARY} to={RoutePath.about} className={cls.link}>
+          <About className={cls.icon} />
+          <span className={cls.title}>{t('О нас')}</span>
+        </NavLink>
+      </div>
+      <Button
+        data-testid="collapsed"
+        theme={ButtonTheme.BACKGROUND_INVERTED}
+        size={ButtonSize.L}
+        onClick={onCollapsedHandler}
+        className={cls.sidebarBtn}
+        square
+      >
+        {collapsed ? '>' : '<'}
       </Button>
       <div className={cls.switchers}>
         <ThemeSwitcher />
-        <TranslateSwitcher className={cls.translate} />
+        <TranslateSwitcher short={collapsed} className={cls.translate} />
       </div>
     </div>
   );

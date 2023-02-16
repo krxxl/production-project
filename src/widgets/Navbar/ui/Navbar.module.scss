@@ -6,15 +6,3 @@
   display: flex;
   align-items: center;
 }
-
-.links {
-  margin-left: auto;
-}
-
-.link {
-  margin-left: 15px;
-
-  &:first-child {
-    margin-left: 0;
-  }
-}
