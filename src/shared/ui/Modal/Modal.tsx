@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
+import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -15,7 +16,6 @@ export const Modal: FC<ModalProps> = ({
   className, children, isOpen, onClose,
 }) => {
   const TIMEOUT = 300;
-
   const [isClosing, setIsClosing] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
