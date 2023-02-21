@@ -1,23 +1,34 @@
 import React, {
-  FC, ReactNode, useCallback, useEffect, useRef, useState,
+  FC, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
-import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
   className?: string,
   isOpen?: boolean,
-  onClose?: () => void
+  onClose?: () => void,
+  lazy?: boolean
 }
 
 export const Modal: FC<ModalProps> = ({
-  className, children, isOpen, onClose,
+  className,
+  children,
+  isOpen,
+  onClose,
+  lazy,
 }) => {
   const TIMEOUT = 300;
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
 
   const onCloseHandler = useCallback(() => {
     setIsClosing(true);
@@ -53,6 +64,11 @@ export const Modal: FC<ModalProps> = ({
   const onContentHandler = (e: React.MouseEvent) => {
     e.stopPropagation();
   };
+
+  if (lazy && !isMounted) {
+    return null;
+  }
+
   return (
     <Portal>
       <div className={classNames(cls.Modal, mods, [className])}>

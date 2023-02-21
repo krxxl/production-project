@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import React, { FC, useCallback, useState } from 'react';
-import { Modal } from 'shared/ui/Modal/Modal';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
+import { LoginModal } from 'features/AuthByUsername';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -20,9 +20,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
       <Button onClick={onLoginHandler} theme={ButtonTheme.CLEAR_INVERTED}>{t('Войти')}</Button>
-      <Modal isOpen={isOpen} onClose={onLoginHandler}>
-        {t('Войти')}
-      </Modal>
+      <LoginModal isOpen={isOpen} onClose={onLoginHandler} />
     </div>
   );
 };
