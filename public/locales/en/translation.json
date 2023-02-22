@@ -10,5 +10,8 @@
   "Страница не найдена": "Page Not Found",
   "Что-то пошло не так": "Something went wrong",
   "Обновить": "Reload",
-  "Войти": "Log in"
+  "Войти": "Log in",
+  "Выйти": "Log out",
+  "Авторизация": "Authorization",
+  "Не верный пароль или логин": "Wrong password or username"
 }

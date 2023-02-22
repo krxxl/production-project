@@ -3,6 +3,8 @@ import React, { FC, useCallback, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUser, userActions } from 'entities/User';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -10,12 +12,26 @@ interface NavbarProps {
 }
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
+  const dispatch = useDispatch();
+  const user = useSelector(getUser);
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
   const onLoginHandler = useCallback(() => {
     setIsOpen((prevState) => !prevState);
   }, [setIsOpen]);
+
+  const onLogoutHandler = useCallback(() => {
+    dispatch(userActions.removeAuthdata());
+  }, [dispatch]);
+
+  if (user) {
+    return (
+      <div className={classNames(cls.Navbar, {}, [className])}>
+        <Button onClick={onLogoutHandler} theme={ButtonTheme.CLEAR_INVERTED}>{t('Выйти')}</Button>
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
