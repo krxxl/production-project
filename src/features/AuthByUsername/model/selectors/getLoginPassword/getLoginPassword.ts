@@ -4,5 +4,5 @@ import { getLogin } from '../getLogin/getLogin';
 
 export const getLoginPassword = createSelector(
   getLogin,
-  (login: LoginSchema) => login.password,
+  (login: LoginSchema) => login?.password || '',
 );

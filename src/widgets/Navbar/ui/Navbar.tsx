@@ -36,7 +36,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
       <Button onClick={onLoginHandler} theme={ButtonTheme.CLEAR_INVERTED}>{t('Войти')}</Button>
-      <LoginModal isOpen={isOpen} onClose={onLoginHandler} />
+      {isOpen && <LoginModal isOpen={isOpen} onClose={onLoginHandler} />}
     </div>
   );
 };
