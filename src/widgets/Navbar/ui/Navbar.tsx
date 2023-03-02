@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, { FC, useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
@@ -11,7 +11,7 @@ interface NavbarProps {
   className?: string
 }
 
-export const Navbar: FC<NavbarProps> = ({ className }) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
   const dispatch = useDispatch();
   const user = useSelector(getUser);
   const { t } = useTranslation();
@@ -39,4 +39,4 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
       {isOpen && <LoginModal isOpen={isOpen} onClose={onLoginHandler} />}
     </div>
   );
-};
+});

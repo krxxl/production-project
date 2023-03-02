@@ -31,31 +31,6 @@
   flex-direction: column;
 }
 
-.link {
-  display: flex;
-  align-items: center;
-  margin-top: 8px;
-
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
-.title {
-  margin-left: 5px;
-  opacity: 1;
-  transition: opacity 0.2s ease;
-}
-
-.icon {
-  fill: var(--primary-color);
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
-
-  .title {
-    opacity: 0;
-    width: 0;
-  }
 }
