@@ -8,6 +8,7 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
+    "strict": true,
     // чтоб ипользовать обычные импорты в вебпак конфиге вместо required
     "esModuleInterop": true,
     // для библ которые не подддерживают дефолт импорт и надо делать * as somthing, а мы пишем просто импорт самсинг

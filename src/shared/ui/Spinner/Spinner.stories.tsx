@@ -15,12 +15,8 @@ export default {
 const Template: ComponentStory<typeof Spinner> = (args) => <Spinner {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-  children: 'text',
-};
+Primary.args = {};
 
 export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-  children: 'text',
-};
+PrimaryDark.args = {};
 PrimaryDark.decorators = [(ThemeDecorator(THEMES.DARK))];
