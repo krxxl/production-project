@@ -16,7 +16,8 @@
   color: var(--inverted-primary-color);
 }
 
-.outline {
+.outline,
+.outline_red {
   background: none;
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
@@ -68,4 +69,9 @@
 .disabled {
   opacity: 0.5;
   pointer-events: none;
+}
+
+.outline_red {
+  border-color: var(--error-light);
+  color: var(--error-light);
 }
