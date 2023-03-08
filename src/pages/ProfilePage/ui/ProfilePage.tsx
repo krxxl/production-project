@@ -33,7 +33,9 @@ const ProfilePage = memo(() => {
   const profileReadonly = useSelector(getProfileReadonly);
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const validateProfileErrorTranslate = {
