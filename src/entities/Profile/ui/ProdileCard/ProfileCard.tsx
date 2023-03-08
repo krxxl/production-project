@@ -113,7 +113,7 @@ export const ProfileCard = memo(({
           readonly={readonly}
         />
         <Input
-          value={data?.city}
+          value={data?.username}
           placeholder={t('Ваше имя пользователя')}
           className={cls.input}
           onChange={onChangeUsername}
