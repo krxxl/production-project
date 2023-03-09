@@ -8,7 +8,20 @@ interface UseThemeResult {
 export function useTheme(): UseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext);
   const toogleTheme = () => {
-    const newTheme = theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK;
+    let newTheme:THEMES;
+    switch (theme) {
+    case THEMES.DARK:
+      newTheme = THEMES.LIGHT;
+      break;
+    case THEMES.LIGHT:
+      newTheme = THEMES.ORANGE;
+      break;
+    case THEMES.ORANGE:
+      newTheme = THEMES.DARK;
+      break;
+    default:
+      newTheme = THEMES.LIGHT;
+    }
     setTheme?.(newTheme);
     document.body.className = newTheme;
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
