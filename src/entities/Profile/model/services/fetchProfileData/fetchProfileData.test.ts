@@ -3,7 +3,7 @@ import { TestAsyncThunk } from 'shared/lib/testing/TestAsyncThunk/TestAsyncThunk
 import { fetchProfileData } from './fetchProfileData';
 
 describe('fetchProfileData', () => {
-  test('success fetchProfileData', async () => {
+  test('success fetchArticleDetailData', async () => {
     const data = {
       first: 'wee',
       lastname: 'jbb',
@@ -24,7 +24,7 @@ describe('fetchProfileData', () => {
     expect(result.payload).toEqual(data);
   });
 
-  test('error fetchProfileData', async () => {
+  test('error fetchArticleDetailData', async () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
     const result = await thunk.callThunk();

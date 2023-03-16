@@ -28,7 +28,7 @@ describe('updateProfileData', () => {
     expect(result.payload).toEqual(data);
   });
 
-  test('error fetchProfileData', async () => {
+  test('error fetchArticleDetailData', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
         form: data,
@@ -43,7 +43,7 @@ describe('updateProfileData', () => {
     expect(result.payload).toEqual([ValidateProfileError.SERVER_ERROR]);
   });
 
-  test('error fetchProfileData', async () => {
+  test('error fetchArticleDetailData', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
         form: { ...data, age: 34.4 },

@@ -29,3 +29,23 @@
 .center {
   text-align: center;
 }
+
+.size-m {
+  .text {
+    font: var(--font-m);
+  }
+
+  .title {
+    font: var(--font-l);
+  }
+}
+
+.size-l {
+  .text {
+    font: var(--font-l);
+  }
+
+  .title {
+    font: var(--font-xl);
+  }
+}

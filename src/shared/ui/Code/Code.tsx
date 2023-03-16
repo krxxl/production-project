@@ -1,0 +1,27 @@
+import { memo, useCallback } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import Copy from 'shared/assets/icons/copyIcon.svg';
+import cls from './Code.module.scss';
+
+interface CodeProps {
+  className?: string;
+  text: string
+}
+
+export const Code = memo(({ className, text }: CodeProps) => {
+  const onCopy = useCallback(() => {
+    navigator.clipboard.writeText(text);
+  }, [text]);
+
+  return (
+    <pre className={classNames(cls.Code, {}, [className])}>
+      <Button onClick={onCopy} className={cls.copyBtn} theme={ButtonTheme.CLEAR}>
+        <Copy className={cls.copyIcon} />
+      </Button>
+      <code>
+        {text}
+      </code>
+    </pre>
+  );
+});

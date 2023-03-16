@@ -4,7 +4,7 @@ import { Profile } from '../../types/profileSchema';
 
 export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
   // женерики 1. что получаем, 2. что передаем (в данном случае ничего) 3. дженерик для апи, диспатча и для ошибки
-  'profile/fetchProfileData',
+  'profile/fetchArticleDetailData',
   async (_, thunkAPI) => {
     const { dispatch, rejectWithValue, extra } = thunkAPI;
     try {
