@@ -5,10 +5,10 @@ import { Article } from '../../types/article';
 export const fetchArticleDetailData = createAsyncThunk<Article, string, ThunkConfig<string>>(
   // женерики 1. что получаем, 2. что передаем (в данном случае ничего) 3. дженерик для апи, диспатча и для ошибки
   'articleDetail/fetchArticleDetailData',
-  async (id, thunkAPI) => {
+  async (articleId, thunkAPI) => {
     const { dispatch, rejectWithValue, extra } = thunkAPI;
     try {
-      const response = await extra.api.get<Article>(`/articles/${id}`);
+      const response = await extra.api.get<Article>(`/articles/${articleId}`);
 
       if (!response.data) {
         throw new Error();

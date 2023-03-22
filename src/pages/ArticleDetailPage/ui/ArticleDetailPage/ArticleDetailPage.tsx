@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleDetail } from 'entities/Article';
@@ -9,6 +9,11 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AddCommentForm } from 'features/addCommentForm';
+import {
+  addArticleDetailComment,
+} from 'pages/ArticleDetailPage/model/services/addArticleDetailComment/addArticleDetailComment';
+import i18nTesting from 'shared/config/i18n/i18nTesting';
 import {
   getArticleDetailCommentsIsLoading,
 } from '../../model/selectors/getArticleDetailCommentsIsLoading/getArticleDetailCommentsIsLoading';
@@ -37,6 +42,10 @@ const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
     dispatch(fetchArticleDetailComments(id));
   });
 
+  const onSendComment = useCallback((value: string) => {
+    dispatch(addArticleDetailComment(value));
+  }, [dispatch]);
+
   if (!id) {
     return (
       <div className={classNames(cls.ArticleDetailPage, {}, [className])}>
@@ -49,6 +58,7 @@ const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
       <div className={classNames(cls.ArticleDetailPage, {}, [className])}>
         <ArticleDetail id={id} />
         <Text title={t('Комментарии')} className={cls.title} />
+        <AddCommentForm onSendComment={onSendComment} />
         <CommentList
           isLoading={commentsIsLoading}
           comments={comments}

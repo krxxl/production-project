@@ -17,11 +17,22 @@ export const CommentList = memo(({
   comments,
 }: CommentListProps) => {
   const { t } = useTranslation();
+
+  if (isLoading) {
+    return (
+      <div className={classNames(cls.CommentList, {}, [className])}>
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+      </div>
+    );
+  }
   return (
     <div className={classNames(cls.CommentList, {}, [className])}>
       {comments?.length ? (
-        comments.map((comment) => (
-          <CommentCard isLoading={isLoading} comment={comment} />
+        comments.map((comment, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <CommentCard key={index} isLoading={isLoading} comment={comment} />
         ))
       ) : (
         t('Пока Нет комментариев')

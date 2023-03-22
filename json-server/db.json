@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,24 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "text": "3243",
+      "userId": "1",
+      "id": "ooWyeMn"
+    },
+    {
+      "articleId": "1",
+      "text": "sdfgfsd",
+      "userId": "2",
+      "id": "pd44GxO"
+    },
+    {
+      "articleId": "1",
+      "text": "nfr nf r",
+      "userId": "2",
+      "id": "3wJIOSK"
     }
   ],
   "users": [
@@ -118,14 +138,28 @@
       "avatar": "https://pixelbox.ru/wp-content/uploads/2022/05/russia-avatar-pixelbox.ru-14.jpg"
     }
   ],
-  "profile": {
-    "first": "as",
-    "lastname": "sadfasd",
-    "age": 123,
-    "currency": "RUB",
-    "country": "USA",
-    "city": "Togliatti",
-    "username": "admin",
-    "avatar": "https://pixelbox.ru/wp-content/uploads/2022/05/russia-avatar-pixelbox.ru-14.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "as",
+      "lastname": "sadfasd",
+      "age": 123,
+      "currency": "RUB",
+      "country": "USA",
+      "city": "Togliatti",
+      "username": "admin",
+      "avatar": "https://pixelbox.ru/wp-content/uploads/2022/05/russia-avatar-pixelbox.ru-14.jpg"
+    },
+    {
+      "id": "2",
+      "first": "dfgsdgsdesrg",
+      "lastname": "sadfsdfsdaasd",
+      "age": 123,
+      "currency": "RUB",
+      "country": "USA",
+      "city": "Togliatti",
+      "username": "admin",
+      "avatar": "https://pixelbox.ru/wp-content/uploads/2022/05/russia-avatar-pixelbox.ru-14.jpg"
+    }
+  ]
 }

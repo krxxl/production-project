@@ -14,5 +14,20 @@ export default {
 const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  comment: {
+    id: '2',
+    text: 'test2',
+    user: {
+      id: '2',
+      username: 'sdfasd',
+    },
+  },
+};
 Primary.decorators = [(StoreDecorator({}))];
+
+export const Loading = Template.bind({});
+Loading.args = {
+  isLoading: true,
+};
+Loading.decorators = [(StoreDecorator({}))];
