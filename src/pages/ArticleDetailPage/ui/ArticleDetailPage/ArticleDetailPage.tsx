@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleDetail } from 'entities/Article';
@@ -10,10 +10,11 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/addCommentForm';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { useNavigate } from 'react-router';
 import {
   addArticleDetailComment,
-} from 'pages/ArticleDetailPage/model/services/addArticleDetailComment/addArticleDetailComment';
-import i18nTesting from 'shared/config/i18n/i18nTesting';
+} from '../../model/services/addArticleDetailComment/addArticleDetailComment';
 import {
   getArticleDetailCommentsIsLoading,
 } from '../../model/selectors/getArticleDetailCommentsIsLoading/getArticleDetailCommentsIsLoading';
@@ -37,6 +38,11 @@ const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailCommentsIsLoading);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const onBackToList = useCallback(() => {
+    navigate(-1);
+  }, [navigate]);
 
   useInitialEffect(() => {
     dispatch(fetchArticleDetailComments(id));
@@ -55,6 +61,7 @@ const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
   }
   return (
     <DynamicModuleLoader reducers={defaultReducers} removeAfterUnmount>
+      <Button onClick={onBackToList} className={cls.goBackBtn} theme={ButtonTheme.OUTLINE}>{t('Назад')}</Button>
       <div className={classNames(cls.ArticleDetailPage, {}, [className])}>
         <ArticleDetail id={id} />
         <Text title={t('Комментарии')} className={cls.title} />

@@ -1,12 +1,8 @@
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Article, ArticleList, ArticleView } from 'entities/Article';
-import cls from './ArticlesPage.module.scss';
-
-interface ArticlesPageProps {
-  className?: string
-}
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ArticleList } from './ArticleList';
+import { Article, ArticleView } from '../../model/types/article';
 
 const article = {
   id: '1',
@@ -85,13 +81,42 @@ const article = {
   ],
 } as Article;
 
-const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
-  const { t } = useTranslation();
-  return (
-    <div className={classNames(cls.ArticlesPage, {}, [className])}>
-      <ArticleList view={ArticleView.BIG} articles={[article, article, article, article]} isLoading />
-    </div>
-  );
-});
+export default {
+  title: 'entities/ArticleList',
+  component: ArticleList,
+  argTypes: {},
+} as ComponentMeta<typeof ArticleList>;
 
-export default ArticlesPage;
+const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+
+export const isLoadingSmall = Template.bind({});
+isLoadingSmall.args = {
+  isLoading: true,
+  articles: [],
+  view: ArticleView.SMALL,
+};
+isLoadingSmall.decorators = [(StoreDecorator({}))];
+
+export const isLoadingBig = Template.bind({});
+isLoadingBig.args = {
+  isLoading: true,
+  articles: [],
+  view: ArticleView.BIG,
+};
+isLoadingBig.decorators = [(StoreDecorator({}))];
+
+export const PrimaryBIG = Template.bind({});
+PrimaryBIG.args = {
+  isLoading: false,
+  articles: [article],
+  view: ArticleView.BIG,
+};
+PrimaryBIG.decorators = [(StoreDecorator({}))];
+
+export const PrimarySMALL = Template.bind({});
+PrimarySMALL.args = {
+  isLoading: false,
+  articles: [article],
+  view: ArticleView.SMALL,
+};
+PrimarySMALL.decorators = [(StoreDecorator({}))];

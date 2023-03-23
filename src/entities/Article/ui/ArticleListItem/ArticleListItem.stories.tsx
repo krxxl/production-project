@@ -1,12 +1,8 @@
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Article, ArticleList, ArticleView } from 'entities/Article';
-import cls from './ArticlesPage.module.scss';
-
-interface ArticlesPageProps {
-  className?: string
-}
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Article, ArticleView } from 'entities/Article';
+import { ArticleListItem } from './ArticleListItem';
 
 const article = {
   id: '1',
@@ -84,14 +80,24 @@ const article = {
     },
   ],
 } as Article;
+export default {
+  title: 'entities/ArticleListItem',
+  component: ArticleListItem,
+  argTypes: {},
+} as ComponentMeta<typeof ArticleListItem>;
 
-const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
-  const { t } = useTranslation();
-  return (
-    <div className={classNames(cls.ArticlesPage, {}, [className])}>
-      <ArticleList view={ArticleView.BIG} articles={[article, article, article, article]} isLoading />
-    </div>
-  );
-});
+const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
 
-export default ArticlesPage;
+export const Small = Template.bind({});
+Small.args = {
+  view: ArticleView.SMALL,
+  article,
+};
+Small.decorators = [(StoreDecorator({}))];
+
+export const Big = Template.bind({});
+Big.args = {
+  view: ArticleView.BIG,
+  article,
+};
+Big.decorators = [(StoreDecorator({}))];
