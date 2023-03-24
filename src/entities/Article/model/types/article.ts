@@ -39,7 +39,7 @@ export enum ArticleType {
   GEOGRAPHY='GEOGRAPHY'
 }
 export interface Article {
-  id?: string,
+  id: string,
   title?: string
   subtitle?: string
   img?: string

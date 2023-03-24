@@ -1,0 +1,10 @@
+.notActive {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.8;
+
+  & > svg {
+    fill: var(--secondary-color);
+    opacity: 0.4;
+  }
+}
