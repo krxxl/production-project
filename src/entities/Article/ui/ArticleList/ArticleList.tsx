@@ -32,21 +32,12 @@ export const ArticleList = memo(({
     <ArticleListItem className={cls.card} key={article.id} view={view} article={article} />
   );
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        {getSkeletons(view)}
-      </div>
-    );
-  }
-
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {articles.length ? (
         articles.map(renderArticles)
-      ) : (
-        <Text title={t('Статей пока нет')} />
-      )}
+      ) : null}
+      {isLoading && getSkeletons(view)}
     </div>
   );
 });

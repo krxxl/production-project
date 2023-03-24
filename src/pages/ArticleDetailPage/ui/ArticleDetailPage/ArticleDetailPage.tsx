@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/addCommentForm';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router';
+import { Page } from 'shared/ui/Page/Page';
 import {
   addArticleDetailComment,
 } from '../../model/services/addArticleDetailComment/addArticleDetailComment';
@@ -54,15 +55,15 @@ const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
 
   if (!id) {
     return (
-      <div className={classNames(cls.ArticleDetailPage, {}, [className])}>
+      <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>
         {t('Нет такой статьи')}
-      </div>
+      </Page>
     );
   }
   return (
     <DynamicModuleLoader reducers={defaultReducers} removeAfterUnmount>
-      <Button onClick={onBackToList} className={cls.goBackBtn} theme={ButtonTheme.OUTLINE}>{t('Назад')}</Button>
-      <div className={classNames(cls.ArticleDetailPage, {}, [className])}>
+      <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>
+        <Button onClick={onBackToList} className={cls.goBackBtn} theme={ButtonTheme.OUTLINE}>{t('Назад')}</Button>
         <ArticleDetail id={id} />
         <Text title={t('Комментарии')} className={cls.title} />
         <AddCommentForm onSendComment={onSendComment} />
@@ -70,7 +71,7 @@ const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
           isLoading={commentsIsLoading}
           comments={comments}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 });

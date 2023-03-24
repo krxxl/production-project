@@ -19,6 +19,7 @@ import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const defaultReducers: ReducersList = {
@@ -85,7 +86,7 @@ const ProfilePage = memo(() => {
 
   return (
     <DynamicModuleLoader reducers={defaultReducers} removeAfterUnmount>
-      <div>
+      <Page>
         <ProfilePageHeader />
         {profileValidateErrors?.length && (
           profileValidateErrors.map((err) => (
@@ -106,7 +107,7 @@ const ProfilePage = memo(() => {
           onChangeCurrency={onChangeCurrency}
           readonly={profileReadonly}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 });
