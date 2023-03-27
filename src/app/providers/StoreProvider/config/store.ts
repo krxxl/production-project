@@ -3,9 +3,8 @@ import {
 } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
-import { To } from 'history';
-import { NavigateOptions } from 'react-router';
 import { api } from 'shared/api/api';
+import { scrollRestorationReducer } from 'features/ScrollRestoration';
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArg } from './stateSchema';
 
@@ -17,6 +16,7 @@ export function createReduxStore(
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    scrollRestoration: scrollRestorationReducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);
