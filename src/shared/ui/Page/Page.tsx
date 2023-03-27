@@ -1,7 +1,6 @@
 import {
   memo, MutableRefObject, ReactNode, useRef,
 } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import cls from './Page.module.scss';
@@ -17,7 +16,6 @@ export const Page = memo(({
   children,
   onScrollEnd,
 }: PageProps) => {
-  const { t } = useTranslation();
   const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 
