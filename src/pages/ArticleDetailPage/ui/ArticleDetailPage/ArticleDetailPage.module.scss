@@ -5,3 +5,10 @@
 .title {
   margin-top: 16px;
 }
+
+.recommendations {
+  flex-wrap: nowrap;
+  margin-top: 16px;
+  overflow-y: hidden;
+  overflow-x: auto;
+}

@@ -7,10 +7,11 @@ import {
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailSchema } from 'entities/Article';
-import { ArticleDetailCommentsSchema } from 'pages/ArticleDetailPage';
+import { ArticleDetailCommentsSchema, ArticleDetailRecommendationsSchema } from 'pages/ArticleDetailPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollRestorationSchema } from 'features/ScrollRestoration';
+import { ArticleDetailPageSchema } from 'pages/ArticleDetailPage/model/type';
 
 export interface StateSchema {
   counter: CounterSchema,
@@ -20,7 +21,7 @@ export interface StateSchema {
   login?: LoginSchema,
   profile?: ProfileSchema,
   articleDetail?: ArticleDetailSchema,
-  articleDetailComments?: ArticleDetailCommentsSchema,
+  articleDetailPage?: ArticleDetailPageSchema,
   addCommentForm?: AddCommentFormSchema,
   articlePage?: ArticlesPageSchema,
 

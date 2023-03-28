@@ -1,9 +1,9 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleDetail } from 'entities/Article';
+import { ArticleDetail, ArticleList } from 'entities/Article';
 import { useParams } from 'react-router-dom';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
@@ -14,30 +14,36 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router';
 import { Page } from 'widgets/Page/Page';
 import {
-  addArticleDetailComment,
-} from '../../model/services/addArticleDetailComment/addArticleDetailComment';
+  getArticleDetailRecommendationsIsLoading,
+} from '../../model/selectors/getArticleDetailRecommendationsIsLoading/getArticleDetailRecommendationsIsLoading';
+import { getArticleRecommendations } from '../../model/slice/articleDetailRecommendationsSlice';
+import { addArticleDetailComment } from '../../model/services/addArticleDetailComment/addArticleDetailComment';
 import {
   getArticleDetailCommentsIsLoading,
 } from '../../model/selectors/getArticleDetailCommentsIsLoading/getArticleDetailCommentsIsLoading';
 import cls from './ArticleDetailPage.module.scss';
-import { articleDetailCommentsReducer, getArticleComments } from '../../model/slice/articleDetailCommentsSlice';
+import { getArticleComments } from '../../model/slice/articleDetailCommentsSlice';
+import { fetchArticleDetailComments } from '../../model/services/fetchArticleDetailComments/fetchArticleDetailComments';
 import {
-  fetchArticleDetailComments,
-} from '../../model/services/fetchArticleDetailComments/fetchArticleDetailComments';
+  fetchArticleDetailRecommendations,
+} from '../../model/services/fetchArticleDetailRecommendations/fetchArticleDetailRecommendations';
+import { articleDetailPageReducer } from '../../model/slice';
 
 interface ArticleDetailPageProps {
   className?: string
 }
 
 const defaultReducers: ReducersList = {
-  articleDetailComments: articleDetailCommentsReducer,
+  articleDetailPage: articleDetailPageReducer,
 };
 
 const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
   const { t } = useTranslation();
   const { id } = useParams<{id: string}>();
   const comments = useSelector(getArticleComments.selectAll);
+  const recommendations = useSelector(getArticleRecommendations.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailCommentsIsLoading);
+  const recommendationsIsLoading = useSelector(getArticleDetailRecommendationsIsLoading);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -47,6 +53,7 @@ const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
 
   useInitialEffect(() => {
     dispatch(fetchArticleDetailComments(id));
+    dispatch(fetchArticleDetailRecommendations());
   });
 
   const onSendComment = useCallback((value: string) => {
@@ -65,7 +72,14 @@ const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
       <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>
         <Button onClick={onBackToList} className={cls.goBackBtn} theme={ButtonTheme.OUTLINE}>{t('Назад')}</Button>
         <ArticleDetail id={id} />
-        <Text title={t('Комментарии')} className={cls.title} />
+        <Text size={TextSize.SIZE_L} title={t('Рекомандации')} className={cls.title} />
+        <ArticleList
+          className={cls.recommendations}
+          articles={recommendations}
+          isLoading={recommendationsIsLoading}
+          target="_blank"
+        />
+        <Text size={TextSize.SIZE_L} title={t('Комментарии')} className={cls.title} />
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList
           isLoading={commentsIsLoading}
