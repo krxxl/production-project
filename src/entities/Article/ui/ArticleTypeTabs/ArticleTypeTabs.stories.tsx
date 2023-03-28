@@ -3,15 +3,15 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleViewSelector } from './ArticleViewSelector';
+import { ArticleTypeTabs } from './ArticleTypeTabs';
 
 export default {
-  title: 'entities/ArticleViewSelector',
-  component: ArticleViewSelector,
+  title: 'entities/ArticleTypeTabs',
+  component: ArticleTypeTabs,
   argTypes: {},
-} as ComponentMeta<typeof ArticleViewSelector>;
+} as ComponentMeta<typeof ArticleTypeTabs>;
 
-const Template: ComponentStory<typeof ArticleViewSelector> = (args) => <ArticleViewSelector {...args} />;
+const Template: ComponentStory<typeof ArticleTypeTabs> = (args) => <ArticleTypeTabs {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

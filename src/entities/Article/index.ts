@@ -2,10 +2,12 @@ import { ArticleViewSelector } from 'entities/Article/ui/ArticleViewSelector/Art
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
+export { ArticleSortSelectors } from './ui/ArticleSortSelectors/ArticleSortSelectors';
+export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
 
 export { articleDetailReducer } from './model/slice/articleDetailSlice';
 
 export { ArticleDetailSchema } from './model/types/articleDetailSchema';
 
 export { ArticleDetail } from './ui/ArticleDetail/ArticleDetail';
-export { Article, ArticleView } from './model/types/article';
+export { Article, ArticleView, ArticleSortField } from './model/types/article';
