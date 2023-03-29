@@ -1,3 +1,10 @@
 {
-
+  "Что-то пошло не так": "Something Went Wrong",
+  "Попробуйте чуть позже": "try later",
+  "Ваше имя": "Your Name",
+  "Ваше фамилия": "Your Lastname",
+  "Ваш возраст": "Your Age",
+  "Ваш город": "Your City",
+  "Ваш аватар": "Your Avatar",
+  "Ваше имя пользователя": "Your Username"
 }

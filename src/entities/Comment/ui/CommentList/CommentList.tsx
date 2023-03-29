@@ -35,7 +35,7 @@ export const CommentList = memo(({
           <CommentCard key={index} isLoading={isLoading} comment={comment} />
         ))
       ) : (
-        t('Пока Нет комментариев')
+        t('Пока нет комментариев')
       )}
     </div>
   );

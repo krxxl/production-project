@@ -25,7 +25,7 @@ export const ArticleSortSelectors = memo(({
 
   const orderFieldOptions = useMemo<Option<ArticleSortField>[]>(() => [
     {
-      label: t('Назавнию'),
+      label: t('Названию'),
       value: ArticleSortField.TITLE,
     },
     {

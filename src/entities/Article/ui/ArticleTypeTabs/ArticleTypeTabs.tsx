@@ -21,19 +21,19 @@ export const ArticleTypeTabs = memo(({
   const tabs = useMemo<TabsItem[]>(() => [
     {
       value: ArticleType.ALL,
-      content: t('ALL'),
+      content: t('Все'),
     },
     {
       value: ArticleType.IT,
-      content: t('IT'),
+      content: t('Айти'),
     },
     {
       value: ArticleType.SCIENCE,
-      content: t('SCIENCE'),
+      content: t('Наука'),
     },
     {
       value: ArticleType.GEOGRAPHY,
-      content: t('GEOGRAPHY'),
+      content: t('География'),
     },
   ], [t]);
 

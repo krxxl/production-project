@@ -38,7 +38,7 @@ export const CurrencySelect = memo(({
   return (
     <Select
       className={classNames('', {}, [className])}
-      label="Ваша валюта"
+      label={t('Ваша валюта')}
       options={options}
       value={value}
       onChange={onChangeHandler}

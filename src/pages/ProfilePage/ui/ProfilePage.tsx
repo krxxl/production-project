@@ -47,7 +47,7 @@ const ProfilePage = memo(() => {
     [ValidateProfileError.INCORRECT_PROFILE_AGE]: t('возраст должен быть корректным'),
     [ValidateProfileError.INCORRECT_PROFILE_CITY]: t('город не может быть пустым'),
     [ValidateProfileError.NO_DATA]: t('заполните форму'),
-    [ValidateProfileError.SERVER_ERROR]: t('ошибка сервера'),
+    [ValidateProfileError.SERVER_ERROR]: t('Ошибка сервера'),
   };
 
   const onChangeFirstname = useCallback((value?: string) => {
