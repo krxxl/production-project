@@ -10,9 +10,8 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/addCommentForm';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { useNavigate } from 'react-router';
 import { Page } from 'widgets/Page/Page';
+import { ArticleDetailPageHeader } from 'pages/ArticleDetailPage/ui/ArticleDetailPageHeader/ArticleDetailPageHeader';
 import {
   getArticleDetailRecommendationsIsLoading,
 } from '../../model/selectors/getArticleDetailRecommendationsIsLoading/getArticleDetailRecommendationsIsLoading';
@@ -45,11 +44,6 @@ const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
   const commentsIsLoading = useSelector(getArticleDetailCommentsIsLoading);
   const recommendationsIsLoading = useSelector(getArticleDetailRecommendationsIsLoading);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-
-  const onBackToList = useCallback(() => {
-    navigate(-1);
-  }, [navigate]);
 
   useInitialEffect(() => {
     dispatch(fetchArticleDetailComments(id));
@@ -70,7 +64,7 @@ const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
   return (
     <DynamicModuleLoader reducers={defaultReducers} removeAfterUnmount>
       <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>
-        <Button onClick={onBackToList} className={cls.goBackBtn} theme={ButtonTheme.OUTLINE}>{t('Назад')}</Button>
+        <ArticleDetailPageHeader />
         <ArticleDetail id={id} />
         <Text size={TextSize.SIZE_L} title={t('Рекомандации')} className={cls.title} />
         <ArticleList
