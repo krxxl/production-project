@@ -46,5 +46,6 @@
   "возраст должен быть корректным": "age must be correct",
   "город не может быть пустым": "the city cannot be empty",
   "заполните форму": "fill the form",
-  "Новая статья": "New article"
+  "Новая статья": "New article",
+  "Статьи": "Articles"
 }
