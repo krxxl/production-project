@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router';
 import { RoutePath } from 'shared/config/router/routeConfig';
 import { useSelector } from 'react-redux';
 import { getArticleDetailData } from 'entities/Article';
-import cls from './ArticleDetailPageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 import {
   getArticleDetailCanEdit,
 } from '../../model/selectors/getArticleDetailCanEdit/getArticleDetailCanEdit';
@@ -30,11 +30,11 @@ export const ArticleDetailPageHeader = memo(({ className }: ArticleDetailPageHea
   }, [article?.id, navigate]);
 
   return (
-    <div className={classNames(cls.ArticleDetailPageHeader, {}, [className])}>
-      <Button onClick={onBackToList} className={cls.goBackBtn} theme={ButtonTheme.OUTLINE}>{t('Назад')}</Button>
+    <HStack max justify="space" className={classNames('', {}, [className])}>
+      <Button onClick={onBackToList} theme={ButtonTheme.OUTLINE}>{t('Назад')}</Button>
       {canEdit && (
-        <Button onClick={onEdit} className={cls.editBtn} theme={ButtonTheme.OUTLINE}>{t('Редактировать')}</Button>
+        <Button onClick={onEdit} theme={ButtonTheme.OUTLINE}>{t('Редактировать')}</Button>
       )}
-    </div>
+    </HStack>
   );
 });

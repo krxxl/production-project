@@ -11,6 +11,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/addCommentForm';
 import { Page } from 'widgets/Page/Page';
+import { VStack } from 'shared/ui/Stack';
 import { ArticleDetailPageHeader } from '../../ui/ArticleDetailPageHeader/ArticleDetailPageHeader';
 import {
   getArticleDetailRecommendationsIsLoading,
@@ -64,21 +65,24 @@ const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
   return (
     <DynamicModuleLoader reducers={defaultReducers} removeAfterUnmount>
       <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>
-        <ArticleDetailPageHeader />
-        <ArticleDetail id={id} />
-        <Text size={TextSize.SIZE_L} title={t('Рекомандации')} className={cls.title} />
-        <ArticleList
-          className={cls.recommendations}
-          articles={recommendations}
-          isLoading={recommendationsIsLoading}
-          target="_blank"
-        />
-        <Text size={TextSize.SIZE_L} title={t('Комментарии')} className={cls.title} />
-        <AddCommentForm onSendComment={onSendComment} />
-        <CommentList
-          isLoading={commentsIsLoading}
-          comments={comments}
-        />
+        <VStack max gap="16">
+          <ArticleDetailPageHeader />
+          <ArticleDetail id={id} />
+          <Text size={TextSize.SIZE_L} title={t('Рекомандации')} className={cls.title} />
+          <ArticleList
+            className={cls.recommendations}
+            articles={recommendations}
+            isLoading={recommendationsIsLoading}
+            target="_blank"
+          />
+
+          <Text size={TextSize.SIZE_L} title={t('Комментарии')} className={cls.title} />
+          <AddCommentForm onSendComment={onSendComment} />
+          <CommentList
+            isLoading={commentsIsLoading}
+            comments={comments}
+          />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

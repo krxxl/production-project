@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { TranslateSwitcher } from 'widgets/TranslateSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { VStack } from 'shared/ui/Stack';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems/getSidebarItems';
@@ -29,9 +30,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         [className],
       )}
     >
-      <div className={cls.links}>
+      <VStack gap="8" className={cls.links}>
         {sidebarItems.map((item) => <SidebarItem key={item.path} item={item} collapsed={collapsed} />)}
-      </div>
+      </VStack>
       <Button
         data-testid="collapsed"
         theme={ButtonTheme.BACKGROUND_INVERTED}

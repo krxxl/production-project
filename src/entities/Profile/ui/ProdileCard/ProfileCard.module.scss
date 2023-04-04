@@ -3,25 +3,8 @@
   border: 2px solid var(--inverted-bg-color);
 }
 
-.input {
-  margin-top: 10px;
-
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
-.avatarWrapper {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-
 .isLoading,
 .error {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 300px;
 }
 

@@ -9,7 +9,7 @@ import {
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUser } from 'entities/User';
-import cls from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ProfilePageHeaderProps {
   className?: string
@@ -37,39 +37,36 @@ export const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) =>
   }, [dispatch]);
 
   return (
-    <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+    <HStack max justify="space">
       <Text title={t('профиль')} />
       {canEdit && (
-        <div className={cls.btnsWrapper}>
+        <div>
           {readonly ? (
             <Button
-              className={cls.editBtn}
               theme={ButtonTheme.OUTLINE}
               onClick={onEditHandler}
             >
               {t('редактировать')}
             </Button>
           ) : (
-            <>
+            <HStack gap="8">
               <Button
-                className={cls.cancelBtn}
                 theme={ButtonTheme.OUTLINE_RED}
                 onClick={onCancelHandler}
               >
                 {t('отменить')}
               </Button>
               <Button
-                className={cls.saveBtn}
                 theme={ButtonTheme.OUTLINE}
                 onClick={onSaveHandler}
               >
                 {t('сохранить')}
               </Button>
-            </>
+            </HStack>
           )}
         </div>
       )}
 
-    </div>
+    </HStack>
   );
 });

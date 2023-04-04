@@ -2,6 +2,7 @@ import React, {
   InputHTMLAttributes, memo, useEffect, useRef,
 } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { HStack } from '../Stack/HStack/HStack';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
@@ -42,7 +43,7 @@ export const Input = memo((props: InputProps) => {
   };
 
   return (
-    <div className={classNames(cls.inputWrapper, mods, [className])}>
+    <HStack gap="8" max className={classNames('', mods, [className])}>
       {placeholder && (
         <span className={cls.placeholder}>
           {placeholder}
@@ -57,7 +58,7 @@ export const Input = memo((props: InputProps) => {
         readOnly={readonly}
         {...otherProps}
       />
-    </div>
+    </HStack>
 
   );
 });
