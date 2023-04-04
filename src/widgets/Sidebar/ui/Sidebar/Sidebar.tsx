@@ -1,7 +1,6 @@
 import { memo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { TranslateSwitcher } from 'widgets/TranslateSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
@@ -15,14 +14,13 @@ interface SidebarProps {
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
-  const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState<boolean>(true);
   const sidebarItems = useSelector(getSidebarItems);
   const onCollapsedHandler = () => {
     setCollapsed((prevState) => !prevState);
   };
   return (
-    <menu
+    <aside
       data-testid="sidebar"
       className={classNames(
         cls.Sidebar,
@@ -30,7 +28,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         [className],
       )}
     >
-      <VStack gap="8" className={cls.links}>
+      <VStack role="navigation" gap="8" className={cls.links}>
         {sidebarItems.map((item) => <SidebarItem key={item.path} item={item} collapsed={collapsed} />)}
       </VStack>
       <Button
@@ -47,6 +45,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         <ThemeSwitcher />
         <TranslateSwitcher short={collapsed} className={cls.translate} />
       </div>
-    </menu>
+    </aside>
   );
 });

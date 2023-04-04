@@ -40,6 +40,16 @@
   text-align: center;
 }
 
+.size-s {
+  .text {
+    font: var(--font-s);
+  }
+
+  .title {
+    font: var(--font-m);
+  }
+}
+
 .size-m {
   .text {
     font: var(--font-m);
