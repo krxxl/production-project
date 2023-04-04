@@ -1,14 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
-import { getArticlesLimit } from 'pages/ArticlesPage/model/selectors/getArticlesLimit/getArticlesLimit';
-import { getArticlesSort } from 'pages/ArticlesPage/model/selectors/getArticlesSort/getArticlesSort';
-import { getArticlesOrder } from 'pages/ArticlesPage/model/selectors/getArticlesOrder/getArticlesOrder';
-import { getArticlesSearch } from 'pages/ArticlesPage/model/selectors/getArticlesSearch/getArticlesSearch';
-import { getArticlesPageNum } from 'pages/ArticlesPage/model/selectors/getArticlesPageNum/getArticlesPageNum';
 import { addQueryParams } from 'shared/url/addQueryParams/addQueryParams';
-import { getArticlesTabValue } from 'pages/ArticlesPage/model/selectors/getArticlesTabValue/getArticlesTabValue';
 import { ArticleType } from 'entities/Article/model/types/article';
+import { getArticlesLimit } from '../../../model/selectors/getArticlesLimit/getArticlesLimit';
+import { getArticlesSort } from '../../../model/selectors/getArticlesSort/getArticlesSort';
+import { getArticlesOrder } from '../../../model/selectors/getArticlesOrder/getArticlesOrder';
+import { getArticlesSearch } from '../../../model/selectors/getArticlesSearch/getArticlesSearch';
+import { getArticlesPageNum } from '../../../model/selectors/getArticlesPageNum/getArticlesPageNum';
+import { getArticlesTabValue } from '../../../model/selectors/getArticlesTabValue/getArticlesTabValue';
 
 interface FetchArticlesProps {
   replace?: boolean;

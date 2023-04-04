@@ -1,4 +1,4 @@
-import { ValidateProfileError } from 'entities/Profile';
+import { ValidateProfileError } from '../../types/profileSchema';
 import { validateProfileData } from './validateProfileData';
 
 describe('validateProfileData', () => {

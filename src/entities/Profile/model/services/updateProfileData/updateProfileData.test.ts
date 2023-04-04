@@ -1,5 +1,5 @@
 import { TestAsyncThunk } from 'shared/lib/testing/TestAsyncThunk/TestAsyncThunk';
-import { ValidateProfileError } from 'entities/Profile';
+import { ValidateProfileError } from '../../types/profileSchema';
 import { updateProfileData } from './updateProfileData';
 
 const data = {

@@ -1,4 +1,4 @@
-import { ArticleViewSelector } from 'entities/Article/ui/ArticleViewSelector/ArticleViewSelector';
+import { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 
 export { getArticleDetailData } from './model/selectors/getArticleDetailData/getArticleDetailData';
 

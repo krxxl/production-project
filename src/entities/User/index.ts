@@ -1,5 +1,5 @@
-import { getUser } from 'entities/User/model/selectors/getUser/getUser';
-import { getUserInited } from 'entities/User/model/selectors/getUserInited/getUserInited';
+import { getUser } from './model/selectors/getUser/getUser';
+import { getUserInited } from './model/selectors/getUserInited/getUserInited';
 import type { UserSchema, User } from './model/types/userSchema';
 import { userReducer, userActions } from './model/slice/userSlice';
 
