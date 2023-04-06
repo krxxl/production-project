@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+li {
+  list-style-type: none;
+}
+
 input,
 button,
 textarea,
@@ -28,4 +32,8 @@ select {
 
 a {
   text-decoration: none;
+}
+
+ul {
+  list-style: none;
 }
