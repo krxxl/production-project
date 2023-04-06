@@ -1,6 +1,7 @@
 import { Fragment, memo } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Listbox } from '@headlessui/react';
+import { DropdownDirection } from 'shared/types/types';
 import { HStack } from '../Stack/HStack/HStack';
 import { Button } from '../Button/Button';
 import cls from './ListBox.module.scss';
@@ -10,9 +11,6 @@ export interface Option {
   label: string;
   disabled?: boolean;
 }
-
-type DropdownDirection = 'top' | 'bottom';
-
 interface ListBoxProps {
   className?: string;
   label?: string;
@@ -24,8 +22,10 @@ interface ListBoxProps {
 }
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
-  bottom: cls.optionsBottom,
-  top: cls.optionsTop,
+  'bottom left': cls.optionsBottomLeft,
+  'bottom right': cls.optionsBottomRight,
+  'top left': cls.optionsTopLeft,
+  'top right': cls.optionsTopRight,
 };
 
 export const ListBox = memo(({
@@ -35,7 +35,7 @@ export const ListBox = memo(({
   value,
   readonly = false,
   onChange,
-  direction = 'bottom',
+  direction = 'bottom right',
 }: ListBoxProps) => {
   const optionsClasses = [mapDirectionClass[direction]];
   return (
