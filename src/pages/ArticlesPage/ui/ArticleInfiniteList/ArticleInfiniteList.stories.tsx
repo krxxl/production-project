@@ -3,15 +3,15 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleDetailPageHeader } from './ArticleDetailPageHeader';
+import { ArticleInfiniteList } from './ArticleInfiniteList';
 
 export default {
-  title: 'pages/ArticleDetailPage/ArticleDetailPageHeader',
-  component: ArticleDetailPageHeader,
+  title: 'pages/ArticlePage/ArticleInfiniteList',
+  component: ArticleInfiniteList,
   argTypes: {},
-} as ComponentMeta<typeof ArticleDetailPageHeader>;
+} as ComponentMeta<typeof ArticleInfiniteList>;
 
-const Template: ComponentStory<typeof ArticleDetailPageHeader> = (args) => <ArticleDetailPageHeader {...args} />;
+const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => <ArticleInfiniteList {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

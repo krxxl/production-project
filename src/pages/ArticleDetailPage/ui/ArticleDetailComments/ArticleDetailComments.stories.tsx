@@ -3,15 +3,15 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleDetailPageHeader } from './ArticleDetailPageHeader';
+import { ArticleDetailComments } from './ArticleDetailComments';
 
 export default {
-  title: 'pages/ArticleDetailPage/ArticleDetailPageHeader',
-  component: ArticleDetailPageHeader,
+  title: 'pages/ArticleDetailPage/ArticleDetailComments',
+  component: ArticleDetailComments,
   argTypes: {},
-} as ComponentMeta<typeof ArticleDetailPageHeader>;
+} as ComponentMeta<typeof ArticleDetailComments>;
 
-const Template: ComponentStory<typeof ArticleDetailPageHeader> = (args) => <ArticleDetailPageHeader {...args} />;
+const Template: ComponentStory<typeof ArticleDetailComments> = (args) => <ArticleDetailComments {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

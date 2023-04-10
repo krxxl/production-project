@@ -23,7 +23,7 @@ const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL
 
 export const ArticleList = memo(({
   className,
-  articles,
+  articles = [],
   view = ArticleView.SMALL,
   isLoading,
   target = '_self',
