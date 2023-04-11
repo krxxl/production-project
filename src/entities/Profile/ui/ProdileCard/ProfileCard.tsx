@@ -88,6 +88,7 @@ export const ProfileCard = memo(({
         className={cls.input}
         onChange={onChangeFirstname}
         readonly={readonly}
+        data-testid="ProfileCard.Firstname"
       />
       <Input
         value={data?.lastname}
@@ -95,6 +96,7 @@ export const ProfileCard = memo(({
         className={cls.input}
         onChange={onChangeLastname}
         readonly={readonly}
+        data-testid="ProfileCard.Lastname"
       />
       <Input
         value={data?.age}
@@ -102,6 +104,7 @@ export const ProfileCard = memo(({
         className={cls.input}
         onChange={onChangeAge}
         readonly={readonly}
+        data-testid="ProfileCard.Age"
       />
       <Input
         value={data?.city}
@@ -109,6 +112,7 @@ export const ProfileCard = memo(({
         className={cls.input}
         onChange={onChangeCity}
         readonly={readonly}
+        data-testid="ProfileCard.City"
       />
       <Input
         value={data?.avatar}
@@ -116,6 +120,7 @@ export const ProfileCard = memo(({
         className={cls.input}
         onChange={onChangeAvatar}
         readonly={readonly}
+        data-testid="ProfileCard.Avatar"
       />
       <Input
         value={data?.username}
@@ -123,16 +128,19 @@ export const ProfileCard = memo(({
         className={cls.input}
         onChange={onChangeUsername}
         readonly={readonly}
+        data-testid="ProfileCard.Username"
       />
       <CountrySelect
         value={data?.country}
         onChange={onChangeCountry}
         readonly={readonly}
+        data-testid="ProfileCard.Country"
       />
       <CurrencySelect
         value={data?.currency}
         onChange={onChangeCurrency}
         readonly={readonly}
+        data-testid="ProfileCard.Currency"
       />
     </VStack>
   );

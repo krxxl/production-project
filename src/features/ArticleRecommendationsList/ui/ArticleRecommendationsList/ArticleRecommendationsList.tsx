@@ -14,6 +14,10 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
   const { t } = useTranslation();
   const { isLoading, data: articles } = useArticleRecommendationsList(3);
 
+  if (!articles) {
+    return null;
+  }
+
   return (
     <VStack gap="16" className={classNames('', {}, [className])}>
       <Text size={TextSize.SIZE_L} title={t('Рекомандации')} />
