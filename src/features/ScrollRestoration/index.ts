@@ -1,6 +1,6 @@
 export { scrollRestorationReducer, scrollRestorationActions } from './model/slices/scrollRestorationSlice';
 
-export { ScrollRestorationSchema } from './model/types/ScrollRestorationSchema';
+export type { ScrollRestorationSchema } from './model/types/ScrollRestorationSchema';
 
 export {
   getScrollRestorationData,

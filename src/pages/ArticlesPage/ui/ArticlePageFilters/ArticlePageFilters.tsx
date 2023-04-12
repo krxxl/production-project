@@ -15,7 +15,7 @@ import { Card } from 'shared/ui/Card/Card';
 import { OrderType } from 'shared/types/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { TabsItem } from 'shared/ui/Tabs/Tabs';
-import { ArticleType } from 'entities/Article/model/types/article';
+import { ArticleType } from 'entities/Article/model/consts/consts';
 import { articlePageActions } from '../../model/slices/articlePageSlice';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import { getArticlesTabValue } from '../../model/selectors/getArticlesTabValue/getArticlesTabValue';

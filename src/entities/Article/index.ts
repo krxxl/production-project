@@ -9,7 +9,8 @@ export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
 
 export { articleDetailReducer } from './model/slice/articleDetailSlice';
 
-export { ArticleDetailSchema } from './model/types/articleDetailSchema';
+export type { ArticleDetailSchema } from './model/types/articleDetailSchema';
 
 export { ArticleDetail } from './ui/ArticleDetail/ArticleDetail';
-export { Article, ArticleView, ArticleSortField } from './model/types/article';
+export type { Article } from './model/types/article';
+export { ArticleSortField, ArticleView } from './model/consts/consts';

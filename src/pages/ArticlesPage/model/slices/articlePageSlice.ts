@@ -4,7 +4,7 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleSortField, ArticleView } from 'entities/Article';
 import { VIEW_ARTICLES_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { OrderType } from 'shared/types/types';
-import { ArticleType } from 'entities/Article/model/types/article';
+import { ArticleType } from 'entities/Article/model/consts/consts';
 import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
 import { fetchArticles } from '../services/fetchArticles/fetchArticles';
 
