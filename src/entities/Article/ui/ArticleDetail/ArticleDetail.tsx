@@ -24,7 +24,7 @@ import { getArticleDetailData } from '../../model/selectors/getArticleDetailData
 
 interface ArticleDetailProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 const defaultReducers: ReducersList = {
   articleDetail: articleDetailReducer,
@@ -98,7 +98,7 @@ export const ArticleDetail = memo(({ className, id }: ArticleDetailProps) => {
 
   return (
     <DynamicModuleLoader reducers={defaultReducers} removeAfterUnmount>
-      <VStack gap="16" className={classNames(cls.ArticleDetail, {}, [className])}>
+      <VStack gap="16" max className={classNames(cls.ArticleDetail, {}, [className])}>
         {content}
       </VStack>
     </DynamicModuleLoader>

@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { ArticleList } from 'entities/Article';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';

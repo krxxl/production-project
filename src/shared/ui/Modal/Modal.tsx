@@ -1,5 +1,6 @@
+// @ts-ignore
 import React, {
-  FC, MutableRefObject, useCallback, useEffect, useRef, useState,
+  ReactNode, MutableRefObject, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
@@ -9,16 +10,17 @@ interface ModalProps {
   className?: string,
   isOpen?: boolean,
   onClose?: () => void,
-  lazy?: boolean
+  lazy?: boolean,
+  children: ReactNode,
 }
 
-export const Modal: FC<ModalProps> = ({
+export const Modal = ({
   className,
   children,
   isOpen,
   onClose,
   lazy,
-}) => {
+}: ModalProps) => {
   const TIMEOUT = 300;
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);

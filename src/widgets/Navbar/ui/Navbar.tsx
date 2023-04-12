@@ -35,7 +35,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   }, [dispatch]);
 
   const isAvailableAdminPanel = isAdminRole || isManagerRole;
-  console.log(isAdminRole);
 
   if (user) {
     return (

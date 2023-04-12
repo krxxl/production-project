@@ -8,7 +8,7 @@ interface CounterProps {
   className?: string
 }
 
-export const Counter: FC<CounterProps> = () => {
+export const Counter = () => {
   const dispatch = useDispatch();
   const counterValue = useSelector(getCounterValue);
   const increment = () => {

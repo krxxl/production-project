@@ -1,5 +1,4 @@
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
+import React, { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleDetail } from 'entities/Article';
 import { useParams } from 'react-router-dom';
@@ -21,16 +20,8 @@ const defaultReducers: ReducersList = {
 };
 
 const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
-  const { t } = useTranslation();
   const { id } = useParams<{id: string}>();
 
-  if (!id) {
-    return (
-      <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>
-        {t('Нет такой статьи')}
-      </Page>
-    );
-  }
   return (
     <DynamicModuleLoader reducers={defaultReducers} removeAfterUnmount>
       <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>

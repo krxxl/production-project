@@ -29,7 +29,7 @@ import cls from './EditableProfileCard.module.scss';
 
 interface EditableProfileCardProps {
     className?: string;
-    id: string
+    id?: string
 }
 
 const defaultReducers: ReducersList = {

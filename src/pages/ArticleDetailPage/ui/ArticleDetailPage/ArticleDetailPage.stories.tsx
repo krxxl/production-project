@@ -17,15 +17,6 @@ const Template: ComponentStory<typeof ArticleDetailPage> = (args) => <ArticleDet
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.story = {
-  parameters: {
-    reactRouter: {
-      routePath: '/articles/:id',
-      routeParams: { id: '1' },
-      routeState: { fromPage: 'articles' },
-    },
-  },
-};
 Primary.decorators = [(StoreDecorator({
   articleDetail: {
     data: {
@@ -61,4 +52,4 @@ Primary.decorators = [(StoreDecorator({
       ],
     },
   },
-})), (withRouter)];
+}))];
