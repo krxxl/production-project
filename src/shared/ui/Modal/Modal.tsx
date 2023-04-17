@@ -1,8 +1,9 @@
 // @ts-ignore
 import React, {
-  ReactNode, MutableRefObject, useCallback, useEffect, useRef, useState,
+  MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { useModal } from '../../lib/hooks/useModal/useModal';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
@@ -23,46 +24,17 @@ export const Modal = ({
   lazy,
 }: ModalProps) => {
   const TIMEOUT = 300;
-  const [isClosing, setIsClosing] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true);
-    }
-  }, [isOpen]);
-
-  const onCloseHandler = useCallback(() => {
-    setIsClosing(true);
-    if (onClose) {
-      timerRef.current = setTimeout(() => {
-        setIsClosing(false);
-        onClose();
-      }, TIMEOUT);
-    }
-  }, [onClose]);
+  const { close, isClosing, isMounted } = useModal({
+    timeOut: TIMEOUT,
+    onClose,
+    isOpen,
+  });
 
   const mods: Mods = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
   };
-
-  const onKey = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      onCloseHandler();
-    }
-  }, [onCloseHandler]);
-
-  useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('keydown', onKey);
-    }
-    return () => {
-      clearTimeout(timerRef.current);
-      window.removeEventListener('keydown', onKey);
-    };
-  }, [isOpen, onKey]);
 
   if (lazy && !isMounted) {
     return null;
@@ -71,7 +43,7 @@ export const Modal = ({
   return (
     <Portal>
       <div className={classNames(cls.Modal, mods, [className])}>
-        <Overlay onClick={onCloseHandler} />
+        <Overlay onClick={close} />
         <div className={cls.content}>
           {children}
         </div>
