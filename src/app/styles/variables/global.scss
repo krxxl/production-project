@@ -15,8 +15,8 @@
   --navbar-height: 66px;
   --sidebar-width: 300px;
   --sidebar-width-collapsed: 80px;
-  --modal-z-index: 10;
-  --overlay-z-index: 9;
+  --modal-z-index: 10000;
+  --overlay-z-index: -1;
   --overlay-bg: rgba(0 0 0 / 60%);
   --error-light: #e54949;
   --error-dark: #940707;
