@@ -2,8 +2,10 @@ import { Fragment, memo, ReactNode } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Menu } from '@headlessui/react';
 import { DropdownDirection } from 'shared/types/types';
-import { NavLink } from '../NavLink/NavLink';
+import { NavLink } from '../../../NavLink/NavLink';
 import cls from './Dropdown.module.scss';
+import popupsCls from '../../styles/popups.module.scss';
+import { mapDirectionClass } from '../../styles/consts';
 
 export interface DropDownItem {
   label: string;
@@ -18,13 +20,6 @@ interface DropdownProps {
   direction?: DropdownDirection;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  'bottom left': cls.optionsBottomLeft,
-  'bottom right': cls.optionsBottomRight,
-  'top left': cls.optionsTopLeft,
-  'top right': cls.optionsTopRight,
-};
-
 export const Dropdown = memo(({
   className,
   items,
@@ -38,10 +33,10 @@ export const Dropdown = memo(({
       className={classNames(
         cls.Dropdown,
         {},
-        [className],
+        [className, popupsCls.Popup],
       )}
     >
-      <Menu.Button className={cls.trigger}>
+      <Menu.Button className={popupsCls.trigger}>
         {trigger}
       </Menu.Button>
       <Menu.Items as="ul" className={classNames(cls.items, {}, itemsClasses)}>
@@ -49,7 +44,7 @@ export const Dropdown = memo(({
           <Menu.Item as={Fragment} key={item.label} disabled={item.disabled}>
             {({ active }) => {
               const mods: Mods = {
-                [cls.active]: active,
+                [popupsCls.active]: active,
               };
               return (
                 <li className={classNames(cls.item, mods, [])}>
@@ -62,7 +57,7 @@ export const Dropdown = memo(({
                   ) : (
                     <button
                       type="button"
-                      className={cls.btn}
+                      className={popupsCls.btn}
                       disabled={item.disabled}
                       onClick={item.onClick}
                     >

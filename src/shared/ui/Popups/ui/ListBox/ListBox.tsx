@@ -2,9 +2,11 @@ import { Fragment, memo } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Listbox } from '@headlessui/react';
 import { DropdownDirection } from 'shared/types/types';
-import { HStack } from '../Stack/HStack/HStack';
-import { Button } from '../Button/Button';
+import { HStack } from '../../../Stack/HStack/HStack';
+import { Button } from '../../../Button/Button';
 import cls from './ListBox.module.scss';
+import popupsCls from '../../styles/popups.module.scss';
+import { mapDirectionClass } from '../../styles/consts';
 
 export interface Option {
   value: string;
@@ -20,13 +22,6 @@ interface ListBoxProps {
   readonly?: boolean;
   direction?: DropdownDirection;
 }
-
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  'bottom left': cls.optionsBottomLeft,
-  'bottom right': cls.optionsBottomRight,
-  'top left': cls.optionsTopLeft,
-  'top right': cls.optionsTopRight,
-};
 
 export const ListBox = memo(({
   className,
@@ -46,7 +41,7 @@ export const ListBox = memo(({
         disabled={readonly}
         value={value}
         onChange={onChange}
-        className={classNames(cls.ListBox, {}, [className])}
+        className={classNames(cls.ListBox, {}, [className, popupsCls.Popup])}
       >
         <Listbox.Button className={classNames(cls.trigger, { [cls.disabled]: readonly }, [])}>
           {value || label}
@@ -61,9 +56,9 @@ export const ListBox = memo(({
             >
               {({ active, selected }) => {
                 const mods: Mods = {
-                  [cls.active]: active,
-                  [cls.selected]: selected,
-                  [cls.disabled]: item.disabled,
+                  [popupsCls.active]: active,
+                  [popupsCls.selected]: selected,
+                  [popupsCls.disabled]: item.disabled,
                 };
                 return (
                   <li className={classNames(cls.item, mods, [])}>
