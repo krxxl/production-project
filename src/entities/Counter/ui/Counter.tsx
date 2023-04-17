@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { Button } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
+import { Button } from '@/shared/ui/Button/Button';
 import { getCounterValue } from '../model/selectors/getConterValue/getCounterValue';
 import { counterActions } from '../model/slice/counterSlice';
 

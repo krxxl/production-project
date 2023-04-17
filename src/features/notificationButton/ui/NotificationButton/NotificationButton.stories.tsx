@@ -1,17 +1,17 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { notificationButton } from './notificationButton';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { NotificationButton } from './NotificationButton';
 
 export default {
-  title: 'Widgets/notificationButton',
-  component: notificationButton,
+  title: 'feature/NotificationButton',
+  component: NotificationButton,
   argTypes: {},
-} as ComponentMeta<typeof notificationButton>;
+} as ComponentMeta<typeof NotificationButton>;
 
-const Template: ComponentStory<typeof notificationButton> = (args) => <notificationButton {...args} />;
+const Template: ComponentStory<typeof NotificationButton> = (args) => <NotificationButton {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

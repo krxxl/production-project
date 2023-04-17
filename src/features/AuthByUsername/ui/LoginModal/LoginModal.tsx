@@ -1,6 +1,6 @@
 import { FC, Suspense } from 'react';
-import { Modal } from 'shared/ui/Modal/Modal';
-import { Loader } from 'widgets/Loader';
+import { Modal } from '@/shared/ui/Modal/Modal';
+import { Loader } from '@/widgets/Loader';
 import { LoginFormAsync } from '../LoginForm/LoginFormAsync';
 
 interface LoginModalProps {

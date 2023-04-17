@@ -1,7 +1,7 @@
 import { Fragment, memo } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Listbox } from '@headlessui/react';
-import { DropdownDirection } from 'shared/types/types';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { DropdownDirection } from '@/shared/types/types';
 import { HStack } from '../../../Stack/HStack/HStack';
 import { Button } from '../../../Button/Button';
 import cls from './ListBox.module.scss';

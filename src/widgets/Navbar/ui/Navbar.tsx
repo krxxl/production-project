@@ -1,20 +1,20 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import React, { memo, useCallback, useState } from 'react';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { LoginModal } from '@/features/AuthByUsername';
 import {
   getUser, isAdmin, isManager, userActions,
-} from 'entities/User';
-import { NavLink, NavLinkTheme } from 'shared/ui/NavLink/NavLink';
-import { RoutePath } from 'shared/config/router/routeConfig';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { Dropdown } from 'shared/ui/Popups/ui/Dropdown/Dropdown';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { HStack } from 'shared/ui/Stack';
-import { NotificationButton } from 'features/notificationButton';
-import { AvatarDropdown } from 'features/avatarDropdown';
+} from '@/entities/User';
+import { NavLink, NavLinkTheme } from '@/shared/ui/NavLink/NavLink';
+import { RoutePath } from '@/shared/config/router/routeConfig';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Dropdown } from '@/shared/ui/Popups/ui/Dropdown/Dropdown';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { HStack } from '@/shared/ui/Stack';
+import { NotificationButton } from '@/features/notificationButton';
+import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

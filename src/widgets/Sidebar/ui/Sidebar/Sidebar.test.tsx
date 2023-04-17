@@ -1,5 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react';
-import { renderWithRouter } from 'shared/lib/testing/renderWithRouter/renderWithRouter';
+import { renderWithRouter } from '@/shared/lib/testing/renderWithRouter/renderWithRouter';
 import { Sidebar } from './Sidebar';
 
 describe('Sidebar', () => {

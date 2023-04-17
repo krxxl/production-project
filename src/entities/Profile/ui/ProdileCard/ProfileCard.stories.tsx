@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Ava from 'shared/assets/testing/avatar.jpg';
+import Ava from '@/shared/assets/testing/avatar.jpg';
 import { ProfileCard } from './ProfileCard';
 
 export default {

@@ -1,4 +1,4 @@
-import { TestAsyncThunk } from 'shared/lib/testing/TestAsyncThunk/TestAsyncThunk';
+import { TestAsyncThunk } from '@/shared/lib/testing/TestAsyncThunk/TestAsyncThunk';
 import { ValidateProfileError } from '../../types/EditableProfileCardSchema';
 import { updateProfileData } from './updateProfileData';
 
