@@ -1,11 +1,12 @@
-import React, { memo } from 'react';
-import { useTranslation } from 'react-i18next';
+import React, { memo, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import IconNotification from 'shared/assets/icons/notification.svg';
 import { NotificationList } from 'entities/Notification';
 import { Popover } from 'shared/ui/Popups';
+import { BrowserView, MobileView } from 'react-device-detect';
+import { Drawer } from 'shared/ui/Drawer/Drawer';
 import cls from './notificationButton.module.scss';
 
 interface notificationButtonProps {
@@ -13,18 +14,39 @@ interface notificationButtonProps {
 }
 
 export const NotificationButton = memo(({ className }: notificationButtonProps) => {
-  const { t } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onOpenDrawer = useCallback(() => {
+    setIsOpen(true);
+  }, []);
+
+  const onCloseDrawer = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
+  const trigger = (
+    <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
+      <Icon Svg={IconNotification} inverted />
+    </Button>
+  );
+
   return (
-    <Popover
-      className={classNames(cls.notificationButton, {}, [className])}
-      trigger={(
-        <Button theme={ButtonTheme.CLEAR}>
-          <Icon Svg={IconNotification} inverted />
-        </Button>
-      )}
-      direction="bottom left"
-    >
-      <NotificationList className={cls.notifications} />
-    </Popover>
+    <div>
+      <BrowserView>
+        <Popover
+          className={classNames(cls.notificationButton, {}, [className])}
+          trigger={trigger}
+          direction="bottom left"
+        >
+          <NotificationList className={cls.notifications} />
+        </Popover>
+      </BrowserView>
+      <MobileView>
+        {trigger}
+        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+          <NotificationList />
+        </Drawer>
+      </MobileView>
+    </div>
   );
 });

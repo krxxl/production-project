@@ -3,6 +3,7 @@ import React, {
   ReactNode, MutableRefObject, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -63,10 +64,6 @@ export const Modal = ({
     };
   }, [isOpen, onKey]);
 
-  const onContentHandler = (e: React.MouseEvent) => {
-    e.stopPropagation();
-  };
-
   if (lazy && !isMounted) {
     return null;
   }
@@ -74,11 +71,11 @@ export const Modal = ({
   return (
     <Portal>
       <div className={classNames(cls.Modal, mods, [className])}>
-        <div onClick={onCloseHandler} className={cls.overlay}>
-          <div onClick={onContentHandler} className={cls.content}>
-            {children}
-          </div>
+        <Overlay onClick={onCloseHandler} />
+        <div className={cls.content}>
+          {children}
         </div>
+
       </div>
     </Portal>
 
