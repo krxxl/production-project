@@ -10,15 +10,17 @@ interface CardProps extends HTMLAttributes<HTMLDivElement>{
   className?: string;
   children: ReactNode;
   theme?: CardTheme;
+  fullWidth?: boolean
 }
 
 export const Card = ({
   className,
   children,
   theme = CardTheme.NORMAL,
+  fullWidth = false,
   ...otherProps
 }: CardProps) => (
-  <div className={classNames(cls.Card, {}, [className, cls[theme]])} {...otherProps}>
+  <div className={classNames(cls.Card, { [cls.fullWidth]: fullWidth }, [className, cls[theme]])} {...otherProps}>
     {children}
   </div>
 );
