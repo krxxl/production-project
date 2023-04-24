@@ -13,4 +13,6 @@ export type { ArticleDetailSchema } from './model/types/articleDetailSchema';
 
 export { ArticleDetail } from './ui/ArticleDetail/ArticleDetail';
 export type { Article } from './model/types/article';
-export { ArticleSortField, ArticleView } from './model/consts/consts';
+export {
+  ArticleSortField, ArticleView, ArticleType, ArticleBlockType,
+} from './model/consts/consts';

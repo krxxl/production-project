@@ -3,7 +3,9 @@ import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import { loginReducer } from '@/features/AuthByUsername';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailReducer } from '@/entities/Article';
+// eslint-disable-next-line krxxl-plugin/public-api-imports
 import { addCommentFormReducer } from '@/features/addCommentForm/model/slices/addCommentFormSlice';
+// eslint-disable-next-line krxxl-plugin/public-api-imports
 import { articleDetailPageReducer } from '@/pages/ArticleDetailPage/model/slice';
 import { profileReducer } from '@/features/EditableProfileCard';
 
