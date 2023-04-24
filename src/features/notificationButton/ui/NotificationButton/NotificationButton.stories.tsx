@@ -6,7 +6,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { NotificationButton } from './NotificationButton';
 
 export default {
-  title: 'feature/NotificationButton',
+  title: 'features/NotificationButton',
   component: NotificationButton,
   argTypes: {},
 } as ComponentMeta<typeof NotificationButton>;
