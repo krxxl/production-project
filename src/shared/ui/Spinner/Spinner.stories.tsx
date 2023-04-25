@@ -2,8 +2,8 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { THEMES } from '@/app/providers/ThemeProvider';
 import { Spinner } from './Spinner';
+import { THEMES } from '@/shared/const/theme';
 
 export default {
   title: 'Share/Spinner',

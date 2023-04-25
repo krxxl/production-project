@@ -61,8 +61,15 @@ module.exports = {
     'krxxl-plugin/path-checker': ['error', { alias: '@' }],
     'krxxl-plugin/public-api-imports': ['error', {
       alias: '@',
-      testFilesPatterns: ['**/*.test.*', '**/*.stories.*, **/StoreDecorator.tsx'],
+      testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
     }],
+    'krxxl-plugin/layer-imports': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,

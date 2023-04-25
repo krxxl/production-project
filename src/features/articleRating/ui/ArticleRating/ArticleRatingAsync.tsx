@@ -1,11 +1,11 @@
 import { lazy, Suspense } from 'react';
-import { Loader } from '@/widgets/Loader';
 import { ArticleRatingProps } from './ArticleRating';
+import { Spinner } from '@/shared/ui/Spinner/Spinner';
 
 export const ArticleRatingLazy = lazy(() => import('./ArticleRating'));
 
 export const ArticleRatingAsync = (props: ArticleRatingProps) => (
-  <Suspense fallback={<Loader />}>
+  <Suspense fallback={<Spinner />}>
     <ArticleRatingLazy {...props} />
   </Suspense>
 );
