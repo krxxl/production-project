@@ -8,7 +8,6 @@ import {
   getUser, isAdmin, isManager, userActions,
 } from '@/entities/User';
 import { NavLink, NavLinkTheme } from '@/shared/ui/NavLink/NavLink';
-import { RoutePath } from '@/shared/config/router/routeConfig';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { Dropdown } from '@/shared/ui/Popups/ui/Dropdown/Dropdown';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
@@ -16,6 +15,7 @@ import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface NavbarProps {
   className?: string
