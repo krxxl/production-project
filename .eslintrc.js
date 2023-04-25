@@ -24,6 +24,7 @@ module.exports = {
     'i18next',
     'react-hooks',
     'krxxl-plugin',
+    'unused-imports',
   ],
   rules: {
     'react/jsx-indent': [2, 2],
@@ -34,7 +35,14 @@ module.exports = {
     }],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
-    'no-unused-vars': 'warn',
+    'no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
+      'warn',
+      {
+        vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_',
+      },
+    ],
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'warn',

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import { renderWithRouter } from '@/shared/lib/testing/renderWithRouter/renderWithRouter';
 import { Counter } from './Counter';
 

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { ReactNode, useMemo } from 'react';
+import { useMemo } from 'react';
 import { getUser, getUserRoles, UserRoles } from '@/entities/User';
 import { RoutePath } from '@/shared/const/router';
 
