@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Option, Select } from '@/shared/ui/Select/Select';
+import { Option, Select } from '@/shared/ui/Select';
 import { OrderType } from '@/shared/types/types';
 import { ArticleSortField } from '../../model/consts/consts';
 import cls from './ArticleSortSelectors.module.scss';
