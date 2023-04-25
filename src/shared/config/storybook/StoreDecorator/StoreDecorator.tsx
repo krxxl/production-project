@@ -4,9 +4,9 @@ import { loginReducer } from '@/features/AuthByUsername';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailReducer } from '@/entities/Article';
 // eslint-disable-next-line krxxl-plugin/public-api-imports
-import { addCommentFormReducer } from '@/features/addCommentForm/model/slices/addCommentFormSlice';
+import { addCommentFormReducer } from '@/features/addCommentForm/testing';
 // eslint-disable-next-line krxxl-plugin/public-api-imports
-import { articleDetailPageReducer } from '@/pages/ArticleDetailPage/model/slice';
+import { articleDetailPageReducer } from '@/pages/ArticleDetailPage/testing';
 import { profileReducer } from '@/features/EditableProfileCard';
 
 const defaultAsyncReducers: ReducersList = {
