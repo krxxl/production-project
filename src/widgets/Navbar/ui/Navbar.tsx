@@ -13,7 +13,7 @@ import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleNew } from '@/shared/const/router';
 
 interface NavbarProps {
   className?: string
@@ -35,7 +35,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
         <Text title={t('KR')} theme={TextTheme.INVERTED} className={cls.appTitle} />
         <NavLink
-          to={RoutePath.article_new}
+          to={getRouteArticleNew()}
           theme={NavLinkTheme.SECONDARY}
           className={cls.createArticleBtn}
         >

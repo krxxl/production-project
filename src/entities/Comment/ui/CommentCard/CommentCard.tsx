@@ -7,7 +7,7 @@ import { NavLink } from '@/shared/ui/NavLink';
 import { VStack } from '@/shared/ui/Stack';
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../model/types/comment';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteProfile } from '@/shared/const/router';
 
 interface CommentCardProps {
   className?: string;
@@ -34,7 +34,7 @@ export const CommentCard = memo(({ className, isLoading, comment }: CommentCardP
 
   return (
     <VStack max gap="16" className={classNames(cls.CommentCard, {}, [className])}>
-      <NavLink to={RoutePath.profile + comment.user.id} className={cls.header}>
+      <NavLink to={getRouteProfile(comment.user.id)} className={cls.header}>
         {comment.user.avatar && <Avatar size={30} alt="avatar" src={comment.user.avatar} />}
         <Text title={comment.user.username} className={cls.username} />
       </NavLink>

@@ -14,7 +14,7 @@ import cls from './ArticleListItem.module.scss';
 import {
   Article, ArticleTextBlock,
 } from '../../model/types/article';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetail } from '@/shared/const/router';
 
 interface ArticleListItemProps {
   className?: string;
@@ -50,7 +50,7 @@ export const ArticleListItem = memo(({
             <ArticleTextBlockComponent block={textBlock} className={cls.desc} />
           )}
           <div className={cls.footer}>
-            <NavLink target={target} to={RoutePath.article_detail + article.id}>
+            <NavLink target={target} to={getRouteArticleDetail(article.id)}>
               <Button theme={ButtonTheme.OUTLINE}>{t('Читать далее...')}</Button>
             </NavLink>
             <Text className={cls.views} text={article.views?.toString()} />
@@ -64,7 +64,7 @@ export const ArticleListItem = memo(({
   return (
     <NavLink
       target={target}
-      to={RoutePath.article_detail + article.id}
+      to={getRouteArticleDetail(article.id)}
       className={classNames(cls.ArticleListItem, {}, [className, cls.small])}
     >
       <Card className={cls.card}>

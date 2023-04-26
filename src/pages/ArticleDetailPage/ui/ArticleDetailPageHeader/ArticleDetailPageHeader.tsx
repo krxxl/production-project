@@ -9,7 +9,7 @@ import { HStack } from '@/shared/ui/Stack';
 import {
   getArticleDetailCanEdit,
 } from '../../model/selectors/getArticleDetailCanEdit/getArticleDetailCanEdit';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleEdit } from '@/shared/const/router';
 
 interface ArticleDetailPageHeaderProps {
   className?: string
@@ -26,8 +26,10 @@ export const ArticleDetailPageHeader = memo(({ className }: ArticleDetailPageHea
   }, [navigate]);
 
   const onEdit = useCallback(() => {
-    navigate(`${RoutePath.article_detail}${article?.id}/edit`);
-  }, [article?.id, navigate]);
+    if (article) {
+      navigate(getRouteArticleEdit(article?.id));
+    }
+  }, [article, navigate]);
 
   return (
     <HStack max justify="space" className={classNames('', {}, [className])}>
