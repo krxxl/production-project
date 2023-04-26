@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { NavLink, NavLinkTheme } from './NavLink';
+import { THEMES } from '@/shared/const/theme';
 
 export default {
   title: 'Share/NavLink',
