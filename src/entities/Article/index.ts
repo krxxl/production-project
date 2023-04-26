@@ -5,8 +5,6 @@ export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelecto
 export { ArticleSortSelectors } from './ui/ArticleSortSelectors/ArticleSortSelectors';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
 
-export { articleDetailReducer } from './model/slice/articleDetailSlice';
-
 export type { ArticleDetailSchema } from './model/types/articleDetailSchema';
 
 export { ArticleDetail } from './ui/ArticleDetail/ArticleDetail';

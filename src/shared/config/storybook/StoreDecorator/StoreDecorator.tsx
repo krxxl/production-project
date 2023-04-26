@@ -1,17 +1,11 @@
 import { Story } from '@storybook/react';
-// eslint-disable-next-line krxxl-plugin/layer-imports
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-// eslint-disable-next-line krxxl-plugin/layer-imports
-import { loginReducer } from '@/features/AuthByUsername';
+import { loginReducer } from '@/features/AuthByUsername/testing';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-// eslint-disable-next-line krxxl-plugin/layer-imports
-import { articleDetailReducer } from '@/entities/Article';
-// eslint-disable-next-line krxxl-plugin/layer-imports
+import { articleDetailReducer } from '@/entities/Article/testing';
 import { addCommentFormReducer } from '@/features/addCommentForm/testing';
-// eslint-disable-next-line krxxl-plugin/layer-imports
 import { articleDetailPageReducer } from '@/pages/ArticleDetailPage/testing';
-// eslint-disable-next-line krxxl-plugin/layer-imports
-import { profileReducer } from '@/features/EditableProfileCard';
+import { profileReducer } from '@/features/EditableProfileCard/testing';
 
 const defaultAsyncReducers: ReducersList = {
   login: loginReducer,
