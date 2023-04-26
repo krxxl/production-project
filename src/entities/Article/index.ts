@@ -1,9 +1,6 @@
 export { getArticleDetailData } from './model/selectors/getArticleDetailData/getArticleDetailData';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
-export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
-export { ArticleSortSelectors } from './ui/ArticleSortSelectors/ArticleSortSelectors';
-export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
 
 export type { ArticleDetailSchema } from './model/types/articleDetailSchema';
 

@@ -4,10 +4,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   ArticleSortField,
-  ArticleSortSelectors,
-  ArticleTypeTabs,
   ArticleView,
-  ArticleViewSelector,
   ArticleType,
 } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -24,6 +21,9 @@ import { getArticlesSort } from '../../model/selectors/getArticlesSort/getArticl
 import { getArticlesOrder } from '../../model/selectors/getArticlesOrder/getArticlesOrder';
 import { getArticlesSearch } from '../../model/selectors/getArticlesSearch/getArticlesSearch';
 import cls from './ArticlePageFilters.module.scss';
+import { ArticleSortSelectors } from '@/features/ArticleSortSelectors';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 
 interface ArticlePageFiltersProps {
   className?: string
