@@ -26,7 +26,7 @@ export function buildWebpackConfig(
     // для того чтоб не указывать разширения при инпорте ./component[.без]
     resolve: buildResolves(options),
     // для того чтоб понимать где ошибка
-    devtool: isDev ? 'inline-source-map' : undefined,
+    devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
     devServer: isDev ? buildDevServer(options) : undefined,
   };
 }

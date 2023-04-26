@@ -11,6 +11,7 @@ export const buildBabelLoader = ({ isDev, isTsx }: BuildBabelLoader) => ({
   use: {
     loader: 'babel-loader',
     options: {
+      cacheDirectory: true,
       presets: [
         ['@babel/preset-env'],
       ],
@@ -22,7 +23,7 @@ export const buildBabelLoader = ({ isDev, isTsx }: BuildBabelLoader) => ({
           },
         ],
         '@babel/plugin-transform-runtime',
-        isTsx && [
+        isTsx && !isDev && [
           babelRemovePropsPlugin,
           {
             props: ['data-testid'],
