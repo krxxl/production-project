@@ -1,14 +1,12 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import withMock from 'storybook-addon-mock';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import ArticleRating from './ArticleRating';
 
 export default {
   title: 'features/ArticleRating',
   component: ArticleRating,
-  decorators: [(withMock)],
   argTypes: {},
 } as ComponentMeta<typeof ArticleRating>;
 
