@@ -628,6 +628,15 @@
         "MANAGER"
       ],
       "avatar": "https://pixelbox.ru/wp-content/uploads/2022/05/russia-avatar-pixelbox.ru-14.jpg"
+    },
+    {
+      "id": "99",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://pixelbox.ru/wp-content/uploads/2022/05/russia-avatar-pixelbox.ru-14.jpg"
     }
   ],
   "profile": [
