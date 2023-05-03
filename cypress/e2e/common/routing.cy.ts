@@ -1,18 +1,18 @@
 import { selectByTestId } from '../../helpers/selectByTestId';
 
-describe('template spec', () => {
-  describe('auth', () => {
-    it('passes', () => {
+describe('Роутинг', () => {
+  describe('Пользователь НЕ авторизован', () => {
+    it('Переход на главную страницу', () => {
       cy.visit('/');
-      cy.get('[data-testid=MainPage]').should('exist');
+      cy.get(selectByTestId('MainPage')).should('exist');
     });
-    it('редирект на майн для не авторизованного', () => {
+    it('Переход открывает страницу профиля', () => {
       cy.visit('/profile/1');
-      cy.get('[data-testid=MainPage]').should('exist');
+      cy.get(selectByTestId('MainPage')).should('exist');
     });
-    it('страница не найдена', () => {
-      cy.visit('/profidsfsd');
-      cy.get('[data-testid=NotFoundPage]').should('exist');
+    it('Переход открывает несуществующий маршрут ', () => {
+      cy.visit('/fasfasfasf');
+      cy.get(selectByTestId('NotFoundPage')).should('exist');
     });
   });
   describe('Пользователь авторизован', () => {
@@ -21,7 +21,7 @@ describe('template spec', () => {
     });
     it('Переход открывает страницу профиля', () => {
       cy.visit('/profile/1');
-      cy.get('[data-testid=ProfilePage]').should('exist');
+      cy.get(selectByTestId('ProfilePage')).should('exist');
     });
 
     it('Переход открывает страницу со списком статей', () => {
