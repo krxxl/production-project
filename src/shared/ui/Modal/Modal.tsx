@@ -7,11 +7,11 @@ import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
-  className?: string,
-  isOpen?: boolean,
-  onClose?: () => void,
-  lazy?: boolean,
-  children: ReactNode,
+  className?: string;
+  isOpen?: boolean;
+  onClose?: () => void;
+  lazy?: boolean;
+  children: ReactNode;
 }
 
 export const Modal = ({
@@ -42,12 +42,8 @@ export const Modal = ({
     <Portal>
       <div className={classNames(cls.Modal, mods, [className])}>
         <Overlay onClick={close} />
-        <div className={cls.content}>
-          {children}
-        </div>
-
+        <div className={cls.content}>{children}</div>
       </div>
     </Portal>
-
   );
 };

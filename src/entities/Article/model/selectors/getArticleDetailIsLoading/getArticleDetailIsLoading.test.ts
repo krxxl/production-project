@@ -3,7 +3,9 @@ import { getArticleDetailIsLoading } from './getArticleDetailIsLoading';
 
 describe('getArticleDetailIsLoading', () => {
   test('getArticleDetailIsLoading', () => {
-    const state: DeepPartial<StateSchema> = { articleDetail: { isLoading: true } };
+    const state: DeepPartial<StateSchema> = {
+      articleDetail: { isLoading: true },
+    };
     expect(getArticleDetailIsLoading(state as StateSchema)).toEqual(true);
   });
   test('getArticleDetailIsLoading without state', () => {

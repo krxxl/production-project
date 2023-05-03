@@ -12,7 +12,7 @@ import { Profile } from '../../model/types/profileSchema';
 import { Spinner } from '@/shared/ui/Spinner';
 
 interface ProfileCardProps {
-  className?: string,
+  className?: string;
   data?: Profile;
   error?: string;
 
@@ -28,120 +28,134 @@ interface ProfileCardProps {
   readonly?: boolean;
 }
 
-export const ProfileCard = memo(({
-  className,
-  data,
-  isLoading,
-  error,
-  onChangeFirstname,
-  onChangeLastname,
-  onChangeAge,
-  onChangeCity,
-  onChangeAvatar,
-  onChangeUsername,
-  onChangeCountry,
-  onChangeCurrency,
-  readonly,
-}: ProfileCardProps) => {
-  const { t } = useTranslation('profile');
+export const ProfileCard = memo(
+  ({
+    className,
+    data,
+    isLoading,
+    error,
+    onChangeFirstname,
+    onChangeLastname,
+    onChangeAge,
+    onChangeCity,
+    onChangeAvatar,
+    onChangeUsername,
+    onChangeCountry,
+    onChangeCurrency,
+    readonly,
+  }: ProfileCardProps) => {
+    const { t } = useTranslation('profile');
 
-  if (isLoading) {
-    return (
-      <HStack
-        max
-        justify="center"
-        align="center"
-        className={classNames(cls.ProfileCard, {}, [className, cls.isLoading])}
-      >
-        <Spinner />
-      </HStack>
-    );
-  }
-
-  if (error) {
-    return (
-      <HStack max justify="center" align="center" className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
-        <Text
-          align={TextAlign.CENTER}
-          title={t('Что-то пошло не так')}
-          text={t('Попробуйте чуть позже')}
-          theme={TextTheme.ERROR}
-        />
-      </HStack>
-    );
-  }
-
-  const mods: Mods = {
-    [cls.editing]: !readonly,
-  };
-
-  return (
-    <VStack gap="8" max className={classNames(cls.ProfileCard, mods, [className])}>
-      {data?.avatar && (
-        <HStack max justify="center">
-          <Avatar src={data?.avatar} alt="аватар" size={100} />
+    if (isLoading) {
+      return (
+        <HStack
+          max
+          justify="center"
+          align="center"
+          className={classNames(cls.ProfileCard, {}, [
+            className,
+            cls.isLoading,
+          ])}
+        >
+          <Spinner />
         </HStack>
-      )}
-      <Input
-        value={data?.first}
-        placeholder={t('Ваше имя')}
-        className={cls.input}
-        onChange={onChangeFirstname}
-        readonly={readonly}
-        data-testid="ProfileCard.Firstname"
-      />
-      <Input
-        value={data?.lastname}
-        placeholder={t('Ваше фамилия')}
-        className={cls.input}
-        onChange={onChangeLastname}
-        readonly={readonly}
-        data-testid="ProfileCard.Lastname"
-      />
-      <Input
-        value={data?.age}
-        placeholder={t('Ваш возраст')}
-        className={cls.input}
-        onChange={onChangeAge}
-        readonly={readonly}
-        data-testid="ProfileCard.Age"
-      />
-      <Input
-        value={data?.city}
-        placeholder={t('Ваш город')}
-        className={cls.input}
-        onChange={onChangeCity}
-        readonly={readonly}
-        data-testid="ProfileCard.City"
-      />
-      <Input
-        value={data?.avatar}
-        placeholder={t('Ваш аватар')}
-        className={cls.input}
-        onChange={onChangeAvatar}
-        readonly={readonly}
-        data-testid="ProfileCard.Avatar"
-      />
-      <Input
-        value={data?.username}
-        placeholder={t('Ваше имя пользователя')}
-        className={cls.input}
-        onChange={onChangeUsername}
-        readonly={readonly}
-        data-testid="ProfileCard.Username"
-      />
-      <CountrySelect
-        value={data?.country}
-        onChange={onChangeCountry}
-        readonly={readonly}
-        data-testid="ProfileCard.Country"
-      />
-      <CurrencySelect
-        value={data?.currency}
-        onChange={onChangeCurrency}
-        readonly={readonly}
-        data-testid="ProfileCard.Currency"
-      />
-    </VStack>
-  );
-});
+      );
+    }
+
+    if (error) {
+      return (
+        <HStack
+          max
+          justify="center"
+          align="center"
+          className={classNames(cls.ProfileCard, {}, [className, cls.error])}
+        >
+          <Text
+            align={TextAlign.CENTER}
+            title={t('Что-то пошло не так')}
+            text={t('Попробуйте чуть позже')}
+            theme={TextTheme.ERROR}
+          />
+        </HStack>
+      );
+    }
+
+    const mods: Mods = {
+      [cls.editing]: !readonly,
+    };
+
+    return (
+      <VStack
+        gap="8"
+        max
+        className={classNames(cls.ProfileCard, mods, [className])}
+      >
+        {data?.avatar && (
+          <HStack max justify="center">
+            <Avatar src={data?.avatar} alt="аватар" size={100} />
+          </HStack>
+        )}
+        <Input
+          value={data?.first}
+          placeholder={t('Ваше имя')}
+          className={cls.input}
+          onChange={onChangeFirstname}
+          readonly={readonly}
+          data-testid="ProfileCard.Firstname"
+        />
+        <Input
+          value={data?.lastname}
+          placeholder={t('Ваше фамилия')}
+          className={cls.input}
+          onChange={onChangeLastname}
+          readonly={readonly}
+          data-testid="ProfileCard.Lastname"
+        />
+        <Input
+          value={data?.age}
+          placeholder={t('Ваш возраст')}
+          className={cls.input}
+          onChange={onChangeAge}
+          readonly={readonly}
+          data-testid="ProfileCard.Age"
+        />
+        <Input
+          value={data?.city}
+          placeholder={t('Ваш город')}
+          className={cls.input}
+          onChange={onChangeCity}
+          readonly={readonly}
+          data-testid="ProfileCard.City"
+        />
+        <Input
+          value={data?.avatar}
+          placeholder={t('Ваш аватар')}
+          className={cls.input}
+          onChange={onChangeAvatar}
+          readonly={readonly}
+          data-testid="ProfileCard.Avatar"
+        />
+        <Input
+          value={data?.username}
+          placeholder={t('Ваше имя пользователя')}
+          className={cls.input}
+          onChange={onChangeUsername}
+          readonly={readonly}
+          data-testid="ProfileCard.Username"
+        />
+        <CountrySelect
+          value={data?.country}
+          onChange={onChangeCountry}
+          readonly={readonly}
+          data-testid="ProfileCard.Country"
+        />
+        <CurrencySelect
+          value={data?.currency}
+          onChange={onChangeCurrency}
+          readonly={readonly}
+          data-testid="ProfileCard.Currency"
+        />
+      </VStack>
+    );
+  },
+);

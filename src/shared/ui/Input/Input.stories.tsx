@@ -8,8 +8,7 @@ import { THEMES } from '@/shared/const/theme';
 export default {
   title: 'Share/Input',
   component: Input,
-  argTypes: {
-  },
+  argTypes: {},
 } as ComponentMeta<typeof Input>;
 
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
@@ -21,10 +20,8 @@ Primary.args = {
 };
 
 export const PrimaryWithotPlaceholder = Template.bind({});
-PrimaryWithotPlaceholder.args = {
-};
+PrimaryWithotPlaceholder.args = {};
 
 export const PrimaryWithotPlaceholderDark = Template.bind({});
-PrimaryWithotPlaceholderDark.args = {
-};
-PrimaryWithotPlaceholderDark.decorators = [(ThemeDecorator(THEMES.DARK))];
+PrimaryWithotPlaceholderDark.args = {};
+PrimaryWithotPlaceholderDark.decorators = [ThemeDecorator(THEMES.DARK)];

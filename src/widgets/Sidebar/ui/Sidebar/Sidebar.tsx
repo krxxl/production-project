@@ -10,7 +10,7 @@ import cls from './Sidebar.module.scss';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems/getSidebarItems';
 
 interface SidebarProps {
-  className?: string
+  className?: string;
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
@@ -22,14 +22,14 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   return (
     <aside
       data-testid="sidebar"
-      className={classNames(
-        cls.Sidebar,
-        { [cls.collapsed]: collapsed },
-        [className],
-      )}
+      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+        className,
+      ])}
     >
       <VStack role="navigation" gap="8" className={cls.links}>
-        {sidebarItems.map((item) => <SidebarItem key={item.path} item={item} collapsed={collapsed} />)}
+        {sidebarItems.map((item) => (
+          <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+        ))}
       </VStack>
       <Button
         data-testid="collapsed"

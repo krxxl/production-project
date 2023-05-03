@@ -14,12 +14,13 @@ const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  text: 'export default {\n'
-    + '  title: \'Widgets/Code\',\n'
-    + '  component: Code,\n'
-    + '  argTypes: {},\n'
-    + '} as ComponentMeta<typeof Code>;\n'
-    + '\n'
-    + 'const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;',
+  text:
+    'export default {\n' +
+    "  title: 'Widgets/Code',\n" +
+    '  component: Code,\n' +
+    '  argTypes: {},\n' +
+    '} as ComponentMeta<typeof Code>;\n' +
+    '\n' +
+    'const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;',
 };
-Primary.decorators = [(StoreDecorator({}))];
+Primary.decorators = [StoreDecorator({})];

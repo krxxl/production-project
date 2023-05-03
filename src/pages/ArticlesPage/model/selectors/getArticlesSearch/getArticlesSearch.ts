@@ -1,5 +1,4 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 
-export const getArticlesSearch = (
-  state: StateSchema,
-) => state?.articlePage?.search ?? '';
+export const getArticlesSearch = (state: StateSchema) =>
+  state?.articlePage?.search ?? '';

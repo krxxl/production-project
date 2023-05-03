@@ -7,38 +7,22 @@ import path from 'path';
 export default {
   clearMocks: true,
   testEnvironment: 'jsdom',
-  coveragePathIgnorePatterns: [
-    '\\\\node_modules\\\\',
-  ],
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
   globals: {
     __IS_DEV__: true,
     __API__: '',
     __PROJECT__: 'jest',
   },
-  moduleDirectories: [
-    'node_modules',
-    'src',
-  ],
+  moduleDirectories: ['node_modules', 'src'],
   setupFilesAfterEnv: ['<rootDir>config/jest/jestSetup.ts'],
 
-  moduleFileExtensions: [
-    'js',
-    'jsx',
-    'ts',
-    'tsx',
-    'json',
-    'node',
-  ],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
 
-  modulePaths: [
-    '<rootDir>src',
-  ],
+  modulePaths: ['<rootDir>src'],
   // The root directory that Jest should scan for tests and modules within
   rootDir: '../../',
 
-  testMatch: [
-    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-  ],
+  testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
   moduleNameMapper: {
     '\\.(css|less|scss)$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
@@ -46,12 +30,15 @@ export default {
   },
   reporters: [
     'default',
-    ['jest-html-reporters', {
-      publicPath: '<rootDir>/reports/unit',
-      filename: 'report.html',
-      // openReport: true,
-      inlineSource: true,
-    }],
+    [
+      'jest-html-reporters',
+      {
+        publicPath: '<rootDir>/reports/unit',
+        filename: 'report.html',
+        // openReport: true,
+        inlineSource: true,
+      },
+    ],
   ],
 
   // Indicates whether the coverage information should be collected while executing the test

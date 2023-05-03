@@ -4,11 +4,7 @@ import { Page } from '@/widgets/Page';
 
 const ForbiddenPage = memo(() => {
   const { t } = useTranslation('about');
-  return (
-    <Page data-testid="ForbiddenPage">
-      {t('Нечего тут делать!!')}
-    </Page>
-  );
+  return <Page data-testid="ForbiddenPage">{t('Нечего тут делать!!')}</Page>;
 });
 
 export default ForbiddenPage;

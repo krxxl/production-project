@@ -24,10 +24,5 @@
       "module": "CommonJS"
     }
   },
-  "include": [
-    "./config/jest/jestSetup.ts",
-    "./src/**/*.ts",
-    "./src/**/*.tsx"
-  ]
+  "include": ["./config/jest/jestSetup.ts", "./src/**/*.ts", "./src/**/*.tsx"]
 }
-

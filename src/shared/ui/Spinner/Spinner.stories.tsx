@@ -8,15 +8,16 @@ import { THEMES } from '@/shared/const/theme';
 export default {
   title: 'Share/Spinner',
   component: Spinner,
-  argTypes: {
-  },
+  argTypes: {},
 } as ComponentMeta<typeof Spinner>;
 
-const Template: ComponentStory<typeof Spinner> = (args) => <Spinner {...args} />;
+const Template: ComponentStory<typeof Spinner> = (args) => (
+  <Spinner {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {};
-PrimaryDark.decorators = [(ThemeDecorator(THEMES.DARK))];
+PrimaryDark.decorators = [ThemeDecorator(THEMES.DARK)];

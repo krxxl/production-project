@@ -12,13 +12,15 @@ import { getArticlesTabValue } from '../../../model/selectors/getArticlesTabValu
 interface FetchArticlesProps {
   replace?: boolean;
 }
-export const fetchArticles = createAsyncThunk<Article[], FetchArticlesProps, ThunkConfig<string>>(
+export const fetchArticles = createAsyncThunk<
+  Article[],
+  FetchArticlesProps,
+  ThunkConfig<string>
+>(
   // женерики 1. что получаем, 2. что передаем (в данном случае ничего) 3. дженерик для апи, диспатча и для ошибки
   'articlePage/fetchArticles',
   async (args, thunkAPI) => {
-    const {
-      dispatch, rejectWithValue, extra, getState,
-    } = thunkAPI;
+    const { dispatch, rejectWithValue, extra, getState } = thunkAPI;
 
     const limit = getArticlesLimit(getState());
     const sort = getArticlesSort(getState());
@@ -29,7 +31,10 @@ export const fetchArticles = createAsyncThunk<Article[], FetchArticlesProps, Thu
 
     try {
       addQueryParams({
-        sort, order, search, type,
+        sort,
+        order,
+        search,
+        type,
       });
       const response = await extra.api.get<Article[]>('/articles', {
         params: {

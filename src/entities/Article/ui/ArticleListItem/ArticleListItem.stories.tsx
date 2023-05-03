@@ -17,9 +17,7 @@ const article = {
     username: 'sdgfad',
     avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   },
-  type: [
-    'IT',
-  ],
+  type: ['IT'],
   blocks: [
     {
       id: '1',
@@ -87,18 +85,20 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof ArticleListItem>;
 
-const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
+const Template: ComponentStory<typeof ArticleListItem> = (args) => (
+  <ArticleListItem {...args} />
+);
 
 export const Small = Template.bind({});
 Small.args = {
   view: ArticleView.SMALL,
   article,
 };
-Small.decorators = [(StoreDecorator({}))];
+Small.decorators = [StoreDecorator({})];
 
 export const Big = Template.bind({});
 Big.args = {
   view: ArticleView.BIG,
   article,
 };
-Big.decorators = [(StoreDecorator({}))];
+Big.decorators = [StoreDecorator({})];

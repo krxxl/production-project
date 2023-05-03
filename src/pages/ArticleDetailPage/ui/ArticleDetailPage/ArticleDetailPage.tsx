@@ -2,7 +2,10 @@ import React, { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleDetail } from '@/entities/Article';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
@@ -13,7 +16,7 @@ import { ArticleDetailComments } from '../ArticleDetailComments/ArticleDetailCom
 import { ArticleRating } from '@/features/articleRating';
 
 interface ArticleDetailPageProps {
-  className?: string
+  className?: string;
 }
 
 const defaultReducers: ReducersList = {
@@ -21,7 +24,7 @@ const defaultReducers: ReducersList = {
 };
 
 const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
-  const { id } = useParams<{id: string}>();
+  const { id } = useParams<{ id: string }>();
 
   if (!id) {
     return null;

@@ -1,21 +1,21 @@
 import {
   createEntityAdapter,
-  createSlice, PayloadAction,
+  createSlice,
+  PayloadAction,
 } from '@reduxjs/toolkit';
 
 import { Comment } from '@/entities/Comment';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { ArticleDetailCommentsSchema } from '../type/ArticleDetailCommentsSchema';
-import {
-  fetchArticleDetailComments,
-} from '../../model/services/fetchArticleDetailComments/fetchArticleDetailComments';
+import { fetchArticleDetailComments } from '../../model/services/fetchArticleDetailComments/fetchArticleDetailComments';
 
 const commentsAdapter = createEntityAdapter<Comment>({
   selectId: (comment) => comment.id,
 });
 
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-  (state) => state.articleDetailPage?.comments || commentsAdapter.getInitialState(),
+  (state) =>
+    state.articleDetailPage?.comments || commentsAdapter.getInitialState(),
 );
 
 const articleDetailCommentsSlice = createSlice({
@@ -33,13 +33,13 @@ const articleDetailCommentsSlice = createSlice({
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(fetchArticleDetailComments.fulfilled, (
-        state,
-        action: PayloadAction<Comment[]>,
-      ) => {
-        state.isLoading = false;
-        commentsAdapter.setAll(state, action.payload);
-      })
+      .addCase(
+        fetchArticleDetailComments.fulfilled,
+        (state, action: PayloadAction<Comment[]>) => {
+          state.isLoading = false;
+          commentsAdapter.setAll(state, action.payload);
+        },
+      )
       .addCase(fetchArticleDetailComments.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
@@ -47,4 +47,5 @@ const articleDetailCommentsSlice = createSlice({
   },
 });
 
-export const { reducer: articleDetailCommentsReducer } = articleDetailCommentsSlice;
+export const { reducer: articleDetailCommentsReducer } =
+  articleDetailCommentsSlice;

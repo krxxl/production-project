@@ -10,8 +10,10 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof NotificationButton>;
 
-const Template: ComponentStory<typeof NotificationButton> = (args) => <NotificationButton {...args} />;
+const Template: ComponentStory<typeof NotificationButton> = (args) => (
+  <NotificationButton {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [(StoreDecorator({}))];
+Primary.decorators = [StoreDecorator({})];

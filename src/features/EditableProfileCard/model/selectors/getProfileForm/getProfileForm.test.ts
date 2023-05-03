@@ -15,7 +15,7 @@ describe('getProfileForm', () => {
     expect(getProfileForm(state as StateSchema)).toEqual(form);
   });
   test('getProfileForm without state', () => {
-    const state: DeepPartial<StateSchema> = { };
+    const state: DeepPartial<StateSchema> = {};
     expect(getProfileForm(state as StateSchema)).toEqual(undefined);
   });
 });

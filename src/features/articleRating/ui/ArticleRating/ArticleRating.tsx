@@ -7,39 +7,48 @@ import { getUser } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
 export interface ArticleRatingProps {
-  className?: string,
-  articleId: string,
+  className?: string;
+  articleId: string;
 }
 
-const ArticleRating = memo(({
-  className,
-  articleId,
-}: ArticleRatingProps) => {
+const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
   const { t } = useTranslation();
   const user = useSelector(getUser);
-  const { data, isLoading } = useArticleRating({ articleId, userId: user?.id ?? '' });
+  const { data, isLoading } = useArticleRating({
+    articleId,
+    userId: user?.id ?? '',
+  });
   const [rateArticleMutation] = useRateArticle();
 
-  const onRateArticle = useCallback((stars: number, feedback?: string) => {
-    try {
-      rateArticleMutation({
-        articleId,
-        userId: user?.id ?? '',
-        rate: stars,
-        feedback,
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  }, [articleId, rateArticleMutation, user?.id]);
+  const onRateArticle = useCallback(
+    (stars: number, feedback?: string) => {
+      try {
+        rateArticleMutation({
+          articleId,
+          userId: user?.id ?? '',
+          rate: stars,
+          feedback,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    [articleId, rateArticleMutation, user?.id],
+  );
 
-  const onCancle = useCallback((stars: number) => {
-    onRateArticle(stars);
-  }, [onRateArticle]);
+  const onCancle = useCallback(
+    (stars: number) => {
+      onRateArticle(stars);
+    },
+    [onRateArticle],
+  );
 
-  const onConfirm = useCallback((stars: number, feedback?: string) => {
-    onRateArticle(stars, feedback);
-  }, [onRateArticle]);
+  const onConfirm = useCallback(
+    (stars: number, feedback?: string) => {
+      onRateArticle(stars, feedback);
+    },
+    [onRateArticle],
+  );
 
   if (isLoading) {
     return <Skeleton width="100%" height={120} />;

@@ -8,17 +8,16 @@ import { THEMES } from '@/shared/const/theme';
 export default {
   title: 'Widgets/PageError',
   component: PageError,
-  argTypes: {
-  },
+  argTypes: {},
 } as ComponentMeta<typeof PageError>;
 
-const Template: ComponentStory<typeof PageError> = (args) => <PageError {...args} />;
+const Template: ComponentStory<typeof PageError> = (args) => (
+  <PageError {...args} />
+);
 
 export const Primary = Template.bind({});
-Primary.args = {
-};
+Primary.args = {};
 
 export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-};
-PrimaryDark.decorators = [(ThemeDecorator(THEMES.DARK))];
+PrimaryDark.args = {};
+PrimaryDark.decorators = [ThemeDecorator(THEMES.DARK)];

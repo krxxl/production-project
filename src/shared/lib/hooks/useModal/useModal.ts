@@ -1,18 +1,17 @@
 import {
-  MutableRefObject, useCallback, useEffect, useRef, useState,
+  MutableRefObject,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
 } from 'react';
 
 interface UseModal {
-  timeOut?: number,
+  timeOut?: number;
   onClose?: () => void;
   isOpen?: boolean;
-
 }
-export const useModal = ({
-  timeOut,
-  onClose,
-  isOpen,
-}: UseModal) => {
+export const useModal = ({ timeOut, onClose, isOpen }: UseModal) => {
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
@@ -33,11 +32,14 @@ export const useModal = ({
     }
   }, [timeOut, onClose]);
 
-  const onKey = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      close();
-    }
-  }, [close]);
+  const onKey = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        close();
+      }
+    },
+    [close],
+  );
 
   useEffect(() => {
     if (isOpen) {

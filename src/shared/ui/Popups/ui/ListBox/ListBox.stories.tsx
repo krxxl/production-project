@@ -11,7 +11,9 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof ListBox>;
 
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
+const Template: ComponentStory<typeof ListBox> = (args) => (
+  <ListBox {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -34,4 +36,4 @@ Primary.args = {
     },
   ],
 };
-Primary.decorators = [(StoreDecorator({}))];
+Primary.decorators = [StoreDecorator({})];

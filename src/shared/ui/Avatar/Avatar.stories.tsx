@@ -6,8 +6,7 @@ import Ava from '../../assets/testing/avatar.jpg';
 export default {
   title: 'Share/Avatar',
   component: Avatar,
-  argTypes: {
-  },
+  argTypes: {},
 } as ComponentMeta<typeof Avatar>;
 
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;

@@ -6,42 +6,42 @@ import Profile from '@/shared/assets/icons/profile.svg';
 import Articles from '@/shared/assets/icons/articles.svg';
 import { SidebarItemsType } from '../../types/sidebar';
 import {
-  getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
+  getRouteAbout,
+  getRouteArticles,
+  getRouteMain,
+  getRouteProfile,
 } from '@/shared/const/router';
 
-export const getSidebarItems = createSelector(
-  getUser,
-  (data) => {
-    const SidebatItemslist: SidebarItemsType[] = [
+export const getSidebarItems = createSelector(getUser, (data) => {
+  const SidebatItemslist: SidebarItemsType[] = [
+    {
+      path: getRouteMain(),
+      text: 'Главная',
+      Icon: Main,
+    },
+    {
+      path: getRouteAbout(),
+      text: 'О нас',
+      Icon: About,
+    },
+  ];
+
+  if (data) {
+    SidebatItemslist.push(
       {
-        path: getRouteMain(),
-        text: 'Главная',
-        Icon: Main,
+        path: getRouteProfile(data.id),
+        text: 'Профиль',
+        Icon: Profile,
+        authOnly: true,
       },
       {
-        path: getRouteAbout(),
-        text: 'О нас',
-        Icon: About,
+        path: getRouteArticles(),
+        text: 'Статьи',
+        Icon: Articles,
+        authOnly: true,
       },
-    ];
+    );
+  }
 
-    if (data) {
-      SidebatItemslist.push(
-        {
-          path: getRouteProfile(data.id),
-          text: 'Профиль',
-          Icon: Profile,
-          authOnly: true,
-        },
-        {
-          path: getRouteArticles(),
-          text: 'Статьи',
-          Icon: Articles,
-          authOnly: true,
-        },
-      );
-    }
-
-    return SidebatItemslist;
-  },
-);
+  return SidebatItemslist;
+});

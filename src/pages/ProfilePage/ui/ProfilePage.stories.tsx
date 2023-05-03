@@ -10,40 +10,42 @@ import { THEMES } from '@/shared/const/theme';
 export default {
   title: 'Pages/ProfilePage',
   component: ProfilePage,
-  argTypes: {
-  },
+  argTypes: {},
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-};
-Primary.decorators = [(StoreDecorator({
-  profile: {
-    form: {
-      first: '1',
-      lastname: '1',
-      username: '1',
-      city: '1',
-      age: 12,
-      avatar: Ava,
+Primary.args = {};
+Primary.decorators = [
+  StoreDecorator({
+    profile: {
+      form: {
+        first: '1',
+        lastname: '1',
+        username: '1',
+        city: '1',
+        age: 12,
+        avatar: Ava,
+      },
     },
-  },
-}))];
+  }),
+];
 
 export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-};
-PrimaryDark.decorators = [(ThemeDecorator(THEMES.DARK)), (StoreDecorator({
-  profile: {
-    form: {
-      first: '1',
-      lastname: '1',
-      username: '1',
-      city: '1',
-      age: 12,
-      avatar: Ava,
+PrimaryDark.args = {};
+PrimaryDark.decorators = [
+  ThemeDecorator(THEMES.DARK),
+  StoreDecorator({
+    profile: {
+      form: {
+        first: '1',
+        lastname: '1',
+        username: '1',
+        city: '1',
+        age: 12,
+        avatar: Ava,
+      },
     },
-  },
-}))];
+  }),
+];

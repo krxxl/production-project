@@ -8,11 +8,11 @@ import { SidebarItemsType } from '../../model/types/sidebar';
 import cls from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
-  item: SidebarItemsType,
-  collapsed?: boolean
+  item: SidebarItemsType;
+  collapsed?: boolean;
 }
 
-export const SidebarItem = memo(({ item, collapsed } : SidebarItemProps) => {
+export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
   const { t } = useTranslation();
   const isAuth = useSelector(getUser);
   if (item.authOnly && !isAuth) {
@@ -22,11 +22,7 @@ export const SidebarItem = memo(({ item, collapsed } : SidebarItemProps) => {
     <NavLink
       theme={NavLinkTheme.PRIMARY}
       to={item.path}
-      className={classNames(
-        cls.link,
-        { [cls.collapsed]: collapsed },
-        [],
-      )}
+      className={classNames(cls.link, { [cls.collapsed]: collapsed }, [])}
     >
       <item.Icon className={cls.icon} />
       <span className={cls.title}>{t(item.text)}</span>

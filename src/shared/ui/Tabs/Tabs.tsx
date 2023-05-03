@@ -8,32 +8,32 @@ export interface TabsItem {
   content: ReactNode;
 }
 interface TabsProps {
-  className?: string
+  className?: string;
   tabs: TabsItem[];
   value: string;
   onTabClick: (tab: TabsItem) => void;
 }
 
-export const Tabs = memo(({
-  className,
-  tabs,
-  value,
-  onTabClick,
-}: TabsProps) => {
-  const clickHandler = useCallback((tab: TabsItem) => () => onTabClick(tab), [onTabClick]);
+export const Tabs = memo(
+  ({ className, tabs, value, onTabClick }: TabsProps) => {
+    const clickHandler = useCallback(
+      (tab: TabsItem) => () => onTabClick(tab),
+      [onTabClick],
+    );
 
-  return (
-    <div className={classNames(cls.Tabs, {}, [className])}>
-      {tabs.map((tab) => (
-        <Card
-          theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
-          key={tab.value}
-          className={cls.tab}
-          onClick={clickHandler(tab)}
-        >
-          {tab.content}
-        </Card>
-      ))}
-    </div>
-  );
-});
+    return (
+      <div className={classNames(cls.Tabs, {}, [className])}>
+        {tabs.map((tab) => (
+          <Card
+            theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+            key={tab.value}
+            className={cls.tab}
+            onClick={clickHandler(tab)}
+          >
+            {tab.content}
+          </Card>
+        ))}
+      </div>
+    );
+  },
+);

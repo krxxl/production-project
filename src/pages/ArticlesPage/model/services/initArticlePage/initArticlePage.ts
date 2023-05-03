@@ -6,13 +6,15 @@ import { getArticlesInited } from '../../selectors/getArticlesInited/getArticles
 import { articlePageActions } from '../../slices/articlePageSlice';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 
-export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
+export const initArticlesPage = createAsyncThunk<
+  void,
+  URLSearchParams,
+  ThunkConfig<string>
+>(
   // женерики 1. что получаем, 2. что передаем (в данном случае ничего) 3. дженерик для апи, диспатча и для ошибки
   'articlePage/initArticlesPage',
   async (searchParams, thunkAPI) => {
-    const {
-      dispatch, getState,
-    } = thunkAPI;
+    const { dispatch, getState } = thunkAPI;
     const inited = getArticlesInited(getState());
 
     if (!inited) {

@@ -6,44 +6,44 @@ import cls from './ArticleTypeTabs.module.scss';
 import { ArticleType } from '@/entities/Article';
 
 interface ArticleTypeTabsProps {
-    className?: string;
-    type: ArticleType;
-    onChangeType: (tab: TabsItem) => void;
+  className?: string;
+  type: ArticleType;
+  onChangeType: (tab: TabsItem) => void;
 }
 
-export const ArticleTypeTabs = memo(({
-  className,
-  onChangeType,
-  type,
-}: ArticleTypeTabsProps) => {
-  const { t } = useTranslation();
+export const ArticleTypeTabs = memo(
+  ({ className, onChangeType, type }: ArticleTypeTabsProps) => {
+    const { t } = useTranslation();
 
-  const tabs = useMemo<TabsItem[]>(() => [
-    {
-      value: ArticleType.ALL,
-      content: t('Все'),
-    },
-    {
-      value: ArticleType.IT,
-      content: t('Айти'),
-    },
-    {
-      value: ArticleType.SCIENCE,
-      content: t('Наука'),
-    },
-    {
-      value: ArticleType.GEOGRAPHY,
-      content: t('География'),
-    },
-  ], [t]);
+    const tabs = useMemo<TabsItem[]>(
+      () => [
+        {
+          value: ArticleType.ALL,
+          content: t('Все'),
+        },
+        {
+          value: ArticleType.IT,
+          content: t('Айти'),
+        },
+        {
+          value: ArticleType.SCIENCE,
+          content: t('Наука'),
+        },
+        {
+          value: ArticleType.GEOGRAPHY,
+          content: t('География'),
+        },
+      ],
+      [t],
+    );
 
-  return (
-    <Tabs
-      className={classNames(cls.ArticleTypeTabs, {}, [className])}
-      tabs={tabs}
-      value={type}
-      onTabClick={onChangeType}
-    />
-
-  );
-});
+    return (
+      <Tabs
+        className={classNames(cls.ArticleTypeTabs, {}, [className])}
+        tabs={tabs}
+        value={type}
+        onTabClick={onChangeType}
+      />
+    );
+  },
+);

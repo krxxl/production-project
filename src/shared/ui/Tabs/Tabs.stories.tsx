@@ -32,4 +32,4 @@ Primary.args = {
   value: '3',
   onTabClick: action('onTabClick'),
 };
-Primary.decorators = [(StoreDecorator({}))];
+Primary.decorators = [StoreDecorator({})];

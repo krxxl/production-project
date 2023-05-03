@@ -24,7 +24,7 @@ Row.args = {
     </>
   ),
 };
-Row.decorators = [(StoreDecorator({}))];
+Row.decorators = [StoreDecorator({})];
 
 export const RowGap8 = Template.bind({});
 RowGap8.args = {
@@ -39,7 +39,7 @@ RowGap8.args = {
     </>
   ),
 };
-RowGap8.decorators = [(StoreDecorator({}))];
+RowGap8.decorators = [StoreDecorator({})];
 
 export const Column = Template.bind({});
 Column.args = {
@@ -53,4 +53,4 @@ Column.args = {
     </>
   ),
 };
-Column.decorators = [(StoreDecorator({}))];
+Column.decorators = [StoreDecorator({})];

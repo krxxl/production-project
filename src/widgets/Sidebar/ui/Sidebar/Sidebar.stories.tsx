@@ -9,37 +9,40 @@ import { THEMES } from '@/shared/const/theme';
 export default {
   title: 'Widgets/Sidebar',
   component: Sidebar,
-  argTypes: {
-  },
+  argTypes: {},
 } as ComponentMeta<typeof Sidebar>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
+const Template: ComponentStory<typeof Sidebar> = (args) => (
+  <Sidebar {...args} />
+);
 
 export const Primary = Template.bind({});
-Primary.args = {
-};
-Primary.decorators = [(StoreDecorator({
-  user: {
-    authData: {
-      username: 'dfg',
-      id: 'sdfg',
+Primary.args = {};
+Primary.decorators = [
+  StoreDecorator({
+    user: {
+      authData: {
+        username: 'dfg',
+        id: 'sdfg',
+      },
     },
-  },
-}))];
+  }),
+];
 
 export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-};
-PrimaryDark.decorators = [(ThemeDecorator(THEMES.DARK)), (StoreDecorator({
-  user: {
-    authData: {
-      username: 'dfg',
-      id: 'sdfg',
+PrimaryDark.args = {};
+PrimaryDark.decorators = [
+  ThemeDecorator(THEMES.DARK),
+  StoreDecorator({
+    user: {
+      authData: {
+        username: 'dfg',
+        id: 'sdfg',
+      },
     },
-  },
-}))];
+  }),
+];
 
 export const PrimaryWithoutAuth = Template.bind({});
-PrimaryWithoutAuth.args = {
-};
-PrimaryWithoutAuth.decorators = [(StoreDecorator({}))];
+PrimaryWithoutAuth.args = {};
+PrimaryWithoutAuth.decorators = [StoreDecorator({})];

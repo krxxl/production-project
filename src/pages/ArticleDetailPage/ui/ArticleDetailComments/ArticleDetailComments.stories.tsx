@@ -10,10 +10,12 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof ArticleDetailComments>;
 
-const Template: ComponentStory<typeof ArticleDetailComments> = (args) => <ArticleDetailComments {...args} />;
+const Template: ComponentStory<typeof ArticleDetailComments> = (args) => (
+  <ArticleDetailComments {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
   id: '1',
 };
-Primary.decorators = [(StoreDecorator({}))];
+Primary.decorators = [StoreDecorator({})];

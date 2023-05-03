@@ -12,8 +12,10 @@ export default {
   },
 } as ComponentMeta<typeof ArticleSortSelectors>;
 
-const Template: ComponentStory<typeof ArticleSortSelectors> = (args) => <ArticleSortSelectors {...args} />;
+const Template: ComponentStory<typeof ArticleSortSelectors> = (args) => (
+  <ArticleSortSelectors {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [(StoreDecorator({}))];
+Primary.decorators = [StoreDecorator({})];

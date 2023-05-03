@@ -5,8 +5,7 @@ import { Select } from './Select';
 export default {
   title: 'Share/Select',
   component: Select,
-  argTypes: {
-  },
+  argTypes: {},
 } as ComponentMeta<typeof Select>;
 
 const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;

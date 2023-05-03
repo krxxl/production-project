@@ -52,6 +52,8 @@ describe('updateProfileData', () => {
 
     const result = await thunk.callThunk();
 
-    expect(result.payload).toEqual([ValidateProfileError.INCORRECT_PROFILE_AGE]);
+    expect(result.payload).toEqual([
+      ValidateProfileError.INCORRECT_PROFILE_AGE,
+    ]);
   });
 });

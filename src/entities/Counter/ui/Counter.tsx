@@ -4,7 +4,7 @@ import { getCounterValue } from '../model/selectors/getConterValue/getCounterVal
 import { counterActions } from '../model/slice/counterSlice';
 
 interface CounterProps {
-  className?: string
+  className?: string;
 }
 
 export const Counter = () => {
@@ -19,8 +19,14 @@ export const Counter = () => {
   return (
     <div>
       <h1 data-testid="counter">{counterValue}</h1>
-      <Button data-testid="counter-inc" onClick={increment}>+</Button>
-      <Button data-testid="counter-dec" onClick={decrement}>-</Button>
+      {/* eslint-disable-next-line i18next/no-literal-string */}
+      <Button data-testid="counter-inc" onClick={increment}>
+        +
+      </Button>
+      {/* eslint-disable-next-line i18next/no-literal-string */}
+      <Button data-testid="counter-dec" onClick={decrement}>
+        -
+      </Button>
     </div>
   );
 };

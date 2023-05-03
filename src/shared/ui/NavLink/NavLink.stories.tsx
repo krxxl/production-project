@@ -11,11 +11,12 @@ export default {
   args: {
     to: '/',
   },
-  argTypes: {
-  },
+  argTypes: {},
 } as ComponentMeta<typeof NavLink>;
 
-const Template: ComponentStory<typeof NavLink> = (args) => <NavLink {...args} />;
+const Template: ComponentStory<typeof NavLink> = (args) => (
+  <NavLink {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -33,4 +34,4 @@ export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
   children: 'text',
 };
-PrimaryDark.decorators = [(ThemeDecorator(THEMES.DARK))];
+PrimaryDark.decorators = [ThemeDecorator(THEMES.DARK)];

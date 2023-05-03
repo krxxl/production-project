@@ -15,7 +15,7 @@ describe('getProfileData', () => {
     expect(getProfileData(state as StateSchema)).toEqual(profileData);
   });
   test('getProfileData without state', () => {
-    const state: DeepPartial<StateSchema> = { };
+    const state: DeepPartial<StateSchema> = {};
     expect(getProfileData(state as StateSchema)).toEqual(undefined);
   });
 });

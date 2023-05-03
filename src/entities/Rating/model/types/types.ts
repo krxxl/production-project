@@ -1,6 +1,6 @@
 export interface Rating {
-  rate: number,
-  feedback: string,
+  rate: number;
+  feedback: string;
 }
 //
 // export interface ArticleRatingType extends Rating{

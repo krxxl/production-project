@@ -10,8 +10,10 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof ArticlePageFilters>;
 
-const Template: ComponentStory<typeof ArticlePageFilters> = (args) => <ArticlePageFilters {...args} />;
+const Template: ComponentStory<typeof ArticlePageFilters> = (args) => (
+  <ArticlePageFilters {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [(StoreDecorator({}))];
+Primary.decorators = [StoreDecorator({})];

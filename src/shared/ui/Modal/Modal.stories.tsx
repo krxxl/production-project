@@ -8,8 +8,7 @@ import { THEMES } from '@/shared/const/theme';
 export default {
   title: 'Share/Modal',
   component: Modal,
-  argTypes: {
-  },
+  argTypes: {},
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
@@ -25,4 +24,4 @@ PrimaryDark.args = {
   isOpen: true,
   children: 'text',
 };
-PrimaryDark.decorators = [(ThemeDecorator(THEMES.DARK))];
+PrimaryDark.decorators = [ThemeDecorator(THEMES.DARK)];

@@ -8,8 +8,7 @@ import { THEMES } from '@/shared/const/theme';
 export default {
   title: 'Share/Text',
   component: Text,
-  argTypes: {
-  },
+  argTypes: {},
 } as ComponentMeta<typeof Text>;
 
 const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
@@ -41,7 +40,7 @@ PrimaryDark.args = {
   text: 'text',
   title: 'title',
 };
-PrimaryDark.decorators = [(ThemeDecorator(THEMES.DARK))];
+PrimaryDark.decorators = [ThemeDecorator(THEMES.DARK)];
 
 export const SizeL = Template.bind({});
 SizeL.args = {

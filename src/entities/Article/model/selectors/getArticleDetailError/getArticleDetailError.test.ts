@@ -3,7 +3,9 @@ import { getArticleDetailError } from './getArticleDetailError';
 
 describe('getArticleDetailError', () => {
   test('getLoginError', () => {
-    const state: DeepPartial<StateSchema> = { articleDetail: { error: 'error' } };
+    const state: DeepPartial<StateSchema> = {
+      articleDetail: { error: 'error' },
+    };
     expect(getArticleDetailError(state as StateSchema)).toEqual('error');
   });
   test('getArticleDetailError without state', () => {

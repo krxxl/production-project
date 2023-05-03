@@ -10,8 +10,10 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof EditableProfileCardHeader>;
 
-const Template: ComponentStory<typeof EditableProfileCardHeader> = (args) => <EditableProfileCardHeader {...args} />;
+const Template: ComponentStory<typeof EditableProfileCardHeader> = (args) => (
+  <EditableProfileCardHeader {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [(StoreDecorator({}))];
+Primary.decorators = [StoreDecorator({})];

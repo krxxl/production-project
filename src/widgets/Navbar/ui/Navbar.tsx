@@ -4,9 +4,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { LoginModal } from '@/features/AuthByUsername';
-import {
-  getUser,
-} from '@/entities/User';
+import { getUser } from '@/entities/User';
 import { NavLink, NavLinkTheme } from '@/shared/ui/NavLink';
 import { Text, TextTheme } from '@/shared/ui/Text';
 import { HStack } from '@/shared/ui/Stack';
@@ -16,7 +14,7 @@ import cls from './Navbar.module.scss';
 import { getRouteArticleNew } from '@/shared/const/router';
 
 interface NavbarProps {
-  className?: string
+  className?: string;
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
@@ -32,8 +30,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (user) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
-
-        <Text title={t('KR')} theme={TextTheme.INVERTED} className={cls.appTitle} />
+        <Text
+          title={t('KR')}
+          theme={TextTheme.INVERTED}
+          className={cls.appTitle}
+        />
         <NavLink
           to={getRouteArticleNew()}
           theme={NavLinkTheme.SECONDARY}
@@ -45,16 +46,20 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           <NotificationButton />
           <AvatarDropdown />
         </HStack>
-
       </header>
     );
   }
 
   return (
     <header className={classNames(cls.Navbar, {}, [className])}>
-      <Button className={cls.loginBtn} onClick={onLoginHandler} theme={ButtonTheme.CLEAR_INVERTED}>{t('Войти')}</Button>
+      <Button
+        className={cls.loginBtn}
+        onClick={onLoginHandler}
+        theme={ButtonTheme.CLEAR_INVERTED}
+      >
+        {t('Войти')}
+      </Button>
       {isOpen && <LoginModal isOpen={isOpen} onClose={onLoginHandler} />}
-
     </header>
   );
 });

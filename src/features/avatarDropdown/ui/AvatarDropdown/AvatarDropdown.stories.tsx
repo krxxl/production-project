@@ -10,17 +10,21 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof AvatarDropdown>;
 
-const Template: ComponentStory<typeof AvatarDropdown> = (args) => <AvatarDropdown {...args} />;
+const Template: ComponentStory<typeof AvatarDropdown> = (args) => (
+  <AvatarDropdown {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [(StoreDecorator({
-  user: {
-    authData: {
-      roles: [UserRoles.USER, UserRoles.ADMIN],
-      id: '1',
-      avatar: 'af',
-      username: '123ksjdf',
+Primary.decorators = [
+  StoreDecorator({
+    user: {
+      authData: {
+        roles: [UserRoles.USER, UserRoles.ADMIN],
+        id: '1',
+        avatar: 'af',
+        username: '123ksjdf',
+      },
     },
-  },
-}))];
+  }),
+];

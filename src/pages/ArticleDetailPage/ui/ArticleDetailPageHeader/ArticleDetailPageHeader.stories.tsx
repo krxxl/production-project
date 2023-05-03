@@ -10,8 +10,10 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof ArticleDetailPageHeader>;
 
-const Template: ComponentStory<typeof ArticleDetailPageHeader> = (args) => <ArticleDetailPageHeader {...args} />;
+const Template: ComponentStory<typeof ArticleDetailPageHeader> = (args) => (
+  <ArticleDetailPageHeader {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [(StoreDecorator({}))];
+Primary.decorators = [StoreDecorator({})];

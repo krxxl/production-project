@@ -10,8 +10,10 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof RatingCard>;
 
-const Template: ComponentStory<typeof RatingCard> = (args) => <RatingCard {...args} />;
+const Template: ComponentStory<typeof RatingCard> = (args) => (
+  <RatingCard {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [(StoreDecorator({}))];
+Primary.decorators = [StoreDecorator({})];

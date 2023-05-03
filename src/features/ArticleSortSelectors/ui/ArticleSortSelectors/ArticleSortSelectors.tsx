@@ -7,52 +7,70 @@ import cls from './ArticleSortSelectors.module.scss';
 import { ArticleSortField } from '@/entities/Article';
 
 interface ArticleSortSelectorsProps {
-    className?: string;
-    sort: ArticleSortField;
-    order: OrderType;
-    onChangeOrder: (newOrder: OrderType) => void;
-    onChangeSort: (newSort: ArticleSortField) => void;
+  className?: string;
+  sort: ArticleSortField;
+  order: OrderType;
+  onChangeOrder: (newOrder: OrderType) => void;
+  onChangeSort: (newSort: ArticleSortField) => void;
 }
 
-export const ArticleSortSelectors = memo(({
-  className,
-  sort,
-  order,
-  onChangeOrder,
-  onChangeSort,
-}: ArticleSortSelectorsProps) => {
-  const { t } = useTranslation();
+export const ArticleSortSelectors = memo(
+  ({
+    className,
+    sort,
+    order,
+    onChangeOrder,
+    onChangeSort,
+  }: ArticleSortSelectorsProps) => {
+    const { t } = useTranslation();
 
-  const orderFieldOptions = useMemo<Option<ArticleSortField>[]>(() => [
-    {
-      label: t('Названию'),
-      value: ArticleSortField.TITLE,
-    },
-    {
-      label: t('Дате'),
-      value: ArticleSortField.CREATED,
-    },
-    {
-      label: t('Просмотрам'),
-      value: ArticleSortField.VIEWS,
-    },
-  ], [t]);
+    const orderFieldOptions = useMemo<Option<ArticleSortField>[]>(
+      () => [
+        {
+          label: t('Названию'),
+          value: ArticleSortField.TITLE,
+        },
+        {
+          label: t('Дате'),
+          value: ArticleSortField.CREATED,
+        },
+        {
+          label: t('Просмотрам'),
+          value: ArticleSortField.VIEWS,
+        },
+      ],
+      [t],
+    );
 
-  const orderOptions = useMemo<Option<OrderType>[]>(() => [
-    {
-      label: t('возрастанию'),
-      value: 'asc',
-    },
-    {
-      label: t('убыванию'),
-      value: 'desc',
-    },
-  ], [t]);
+    const orderOptions = useMemo<Option<OrderType>[]>(
+      () => [
+        {
+          label: t('возрастанию'),
+          value: 'asc',
+        },
+        {
+          label: t('убыванию'),
+          value: 'desc',
+        },
+      ],
+      [t],
+    );
 
-  return (
-    <div className={classNames(cls.ArticleSortSelectors, {}, [className])}>
-      <Select value={sort} onChange={onChangeSort} options={orderFieldOptions} label={t('Сортировать по:')} />
-      <Select value={order} onChange={onChangeOrder} label={t('по')} options={orderOptions} />
-    </div>
-  );
-});
+    return (
+      <div className={classNames(cls.ArticleSortSelectors, {}, [className])}>
+        <Select
+          value={sort}
+          onChange={onChangeSort}
+          options={orderFieldOptions}
+          label={t('Сортировать по:')}
+        />
+        <Select
+          value={order}
+          onChange={onChangeOrder}
+          label={t('по')}
+          options={orderOptions}
+        />
+      </div>
+    );
+  },
+);

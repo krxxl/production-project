@@ -10,7 +10,9 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof NotificationItem>;
 
-const Template: ComponentStory<typeof NotificationItem> = (args) => <NotificationItem {...args} />;
+const Template: ComponentStory<typeof NotificationItem> = (args) => (
+  <NotificationItem {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -21,7 +23,7 @@ Primary.args = {
     userId: '1',
   },
 };
-Primary.decorators = [(StoreDecorator({}))];
+Primary.decorators = [StoreDecorator({})];
 export const PrimaryWithHref = Template.bind({});
 PrimaryWithHref.args = {
   item: {
@@ -32,4 +34,4 @@ PrimaryWithHref.args = {
     userId: '1',
   },
 };
-PrimaryWithHref.decorators = [(StoreDecorator({}))];
+PrimaryWithHref.decorators = [StoreDecorator({})];

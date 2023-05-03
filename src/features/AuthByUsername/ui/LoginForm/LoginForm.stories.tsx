@@ -9,48 +9,54 @@ import { THEMES } from '@/shared/const/theme';
 export default {
   title: 'Features/LoginForm',
   component: LoginForm,
-  argTypes: {
-  },
+  argTypes: {},
 } as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
+const Template: ComponentStory<typeof LoginForm> = (args) => (
+  <LoginForm {...args} />
+);
 
 export const Primary = Template.bind({});
-Primary.args = {
-};
-Primary.decorators = [(StoreDecorator({
-  login: {
-    username: '123',
-    password: '123',
-  },
-}))];
+Primary.args = {};
+Primary.decorators = [
+  StoreDecorator({
+    login: {
+      username: '123',
+      password: '123',
+    },
+  }),
+];
 
 export const PrimaryWithError = Template.bind({});
-PrimaryWithError.args = {
-};
-PrimaryWithError.decorators = [(StoreDecorator({
-  login: {
-    username: '123',
-    password: '123',
-    error: 'error',
-  },
-}))];
+PrimaryWithError.args = {};
+PrimaryWithError.decorators = [
+  StoreDecorator({
+    login: {
+      username: '123',
+      password: '123',
+      error: 'error',
+    },
+  }),
+];
 
 export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-};
-PrimaryDark.decorators = [(ThemeDecorator(THEMES.DARK)), (StoreDecorator({
-  login: {
-    username: '123',
-    password: '123',
-  },
-}))];
+PrimaryDark.args = {};
+PrimaryDark.decorators = [
+  ThemeDecorator(THEMES.DARK),
+  StoreDecorator({
+    login: {
+      username: '123',
+      password: '123',
+    },
+  }),
+];
 
 export const PrimaryLoading = Template.bind({});
-PrimaryLoading.args = {
-};
-PrimaryLoading.decorators = [(StoreDecorator({
-  login: {
-    isLoading: true,
-  },
-}))];
+PrimaryLoading.args = {};
+PrimaryLoading.decorators = [
+  StoreDecorator({
+    login: {
+      isLoading: true,
+    },
+  }),
+];

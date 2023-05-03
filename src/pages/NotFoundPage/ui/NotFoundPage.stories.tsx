@@ -9,18 +9,17 @@ import { THEMES } from '@/shared/const/theme';
 export default {
   title: 'Pages/NotFoundPage',
   component: NotFoundPage,
-  argTypes: {
-  },
+  argTypes: {},
 } as ComponentMeta<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof NotFoundPage> = (args) => <NotFoundPage {...args} />;
+const Template: ComponentStory<typeof NotFoundPage> = (args) => (
+  <NotFoundPage {...args} />
+);
 
 export const Primary = Template.bind({});
-Primary.args = {
-};
-Primary.decorators = [(StoreDecorator({}))];
+Primary.args = {};
+Primary.decorators = [StoreDecorator({})];
 
 export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-};
-PrimaryDark.decorators = [(ThemeDecorator(THEMES.DARK)), (StoreDecorator({}))];
+PrimaryDark.args = {};
+PrimaryDark.decorators = [ThemeDecorator(THEMES.DARK), StoreDecorator({})];

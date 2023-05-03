@@ -2,13 +2,15 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Article } from '@/entities/Article';
 
-export const fetchArticleDetailRecommendations = createAsyncThunk<Article[], void, ThunkConfig<string>>(
+export const fetchArticleDetailRecommendations = createAsyncThunk<
+  Article[],
+  void,
+  ThunkConfig<string>
+>(
   // женерики 1. что получаем, 2. что передаем (в данном случае ничего) 3. дженерик для апи, диспатча и для ошибки
   'articlePage/fetchArticleDetailRecommendations',
   async (_, thunkAPI) => {
-    const {
-      dispatch, rejectWithValue, extra,
-    } = thunkAPI;
+    const { dispatch, rejectWithValue, extra } = thunkAPI;
 
     try {
       const response = await extra.api.get<Article[]>('/articles', {

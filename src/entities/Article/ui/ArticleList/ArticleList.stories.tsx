@@ -17,9 +17,7 @@ const article = {
     username: 'sdgfad',
     avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   },
-  type: [
-    'IT',
-  ],
+  type: ['IT'],
   blocks: [
     {
       id: '1',
@@ -88,7 +86,9 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+  <ArticleList {...args} />
+);
 
 export const isLoadingSmall = Template.bind({});
 isLoadingSmall.args = {
@@ -96,7 +96,7 @@ isLoadingSmall.args = {
   articles: [],
   view: ArticleView.SMALL,
 };
-isLoadingSmall.decorators = [(StoreDecorator({}))];
+isLoadingSmall.decorators = [StoreDecorator({})];
 
 export const isLoadingBig = Template.bind({});
 isLoadingBig.args = {
@@ -104,7 +104,7 @@ isLoadingBig.args = {
   articles: [],
   view: ArticleView.BIG,
 };
-isLoadingBig.decorators = [(StoreDecorator({}))];
+isLoadingBig.decorators = [StoreDecorator({})];
 
 export const PrimaryBIG = Template.bind({});
 PrimaryBIG.args = {
@@ -112,7 +112,7 @@ PrimaryBIG.args = {
   articles: [article],
   view: ArticleView.BIG,
 };
-PrimaryBIG.decorators = [(StoreDecorator({}))];
+PrimaryBIG.decorators = [StoreDecorator({})];
 
 export const PrimarySMALL = Template.bind({});
 PrimarySMALL.args = {
@@ -120,4 +120,4 @@ PrimarySMALL.args = {
   articles: [article],
   view: ArticleView.SMALL,
 };
-PrimarySMALL.decorators = [(StoreDecorator({}))];
+PrimarySMALL.decorators = [StoreDecorator({})];

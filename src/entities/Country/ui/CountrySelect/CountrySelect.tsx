@@ -26,24 +26,27 @@ const options = [
   },
 ];
 
-export const CountrySelect = memo(({
-  className, onChange, value, readonly,
-}: CountrySelectProps) => {
-  const { t } = useTranslation();
+export const CountrySelect = memo(
+  ({ className, onChange, value, readonly }: CountrySelectProps) => {
+    const { t } = useTranslation();
 
-  const onChangeHandler = useCallback((value: string) => {
-    onChange?.(value as Country);
-  }, [onChange]);
+    const onChangeHandler = useCallback(
+      (value: string) => {
+        onChange?.(value as Country);
+      },
+      [onChange],
+    );
 
-  return (
-    <ListBox
-      className={classNames('', {}, [className])}
-      label={t('Ваша страна')}
-      options={options}
-      value={value}
-      onChange={onChangeHandler}
-      readonly={readonly}
-      direction="top right"
-    />
-  );
-});
+    return (
+      <ListBox
+        className={classNames('', {}, [className])}
+        label={t('Ваша страна')}
+        options={options}
+        value={value}
+        onChange={onChangeHandler}
+        readonly={readonly}
+        direction="top right"
+      />
+    );
+  },
+);

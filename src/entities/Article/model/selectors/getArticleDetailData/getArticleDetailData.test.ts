@@ -11,7 +11,7 @@ describe('getArticleDetailData', () => {
     expect(getArticleDetailData(state as StateSchema)).toEqual(data);
   });
   test('getProfileData without state', () => {
-    const state: DeepPartial<StateSchema> = { };
+    const state: DeepPartial<StateSchema> = {};
     expect(getArticleDetailData(state as StateSchema)).toEqual(undefined);
   });
 });

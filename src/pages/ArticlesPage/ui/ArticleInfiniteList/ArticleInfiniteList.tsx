@@ -13,27 +13,34 @@ import { getArticlesView } from '../../model/selectors/getArticlesView/getArticl
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlePage';
 
 interface ArticleInfiniteListProps {
-  className?: string
+  className?: string;
 }
 
-export const ArticleInfiniteList = memo(({ className }: ArticleInfiniteListProps) => {
-  const { t } = useTranslation();
-  const dispatch = useAppDispatch();
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesIsLoading);
-  const view = useSelector(getArticlesView);
-  const [searchParams] = useSearchParams();
-  const error = useSelector(getArticlesError);
+export const ArticleInfiniteList = memo(
+  ({ className }: ArticleInfiniteListProps) => {
+    const { t } = useTranslation();
+    const dispatch = useAppDispatch();
+    const articles = useSelector(getArticles.selectAll);
+    const isLoading = useSelector(getArticlesIsLoading);
+    const view = useSelector(getArticlesView);
+    const [searchParams] = useSearchParams();
+    const error = useSelector(getArticlesError);
 
-  useInitialEffect(() => {
-    dispatch(initArticlesPage(searchParams));
-  });
+    useInitialEffect(() => {
+      dispatch(initArticlesPage(searchParams));
+    });
 
-  if (error) {
-    return <Text text={t('Ошибка сервера')} />;
-  }
+    if (error) {
+      return <Text text={t('Ошибка сервера')} />;
+    }
 
-  return (
-    <ArticleList className={className} view={view} articles={articles} isLoading={isLoading} />
-  );
-});
+    return (
+      <ArticleList
+        className={className}
+        view={view}
+        articles={articles}
+        isLoading={isLoading}
+      />
+    );
+  },
+);

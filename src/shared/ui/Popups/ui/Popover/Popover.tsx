@@ -14,24 +14,28 @@ interface PopoverProps {
   children: ReactNode;
 }
 
-export const Popover = memo(({
-  className,
-  direction = 'bottom right',
-  trigger,
-  children,
-}: PopoverProps) => {
-  const { t } = useTranslation();
-  const itemsClasses = [mapDirectionClass[direction]];
+export const Popover = memo(
+  ({
+    className,
+    direction = 'bottom right',
+    trigger,
+    children,
+  }: PopoverProps) => {
+    const { t } = useTranslation();
+    const itemsClasses = [mapDirectionClass[direction]];
 
-  return (
-    <HPopover className={classNames(cls.Popover, {}, [className, popupsCls.Popup])}>
-      <HPopover.Button as="div" className={popupsCls.trigger}>
-        {trigger}
-      </HPopover.Button>
+    return (
+      <HPopover
+        className={classNames(cls.Popover, {}, [className, popupsCls.Popup])}
+      >
+        <HPopover.Button as="div" className={popupsCls.trigger}>
+          {trigger}
+        </HPopover.Button>
 
-      <HPopover.Panel className={classNames(cls.panel, {}, itemsClasses)}>
-        {children}
-      </HPopover.Panel>
-    </HPopover>
-  );
-});
+        <HPopover.Panel className={classNames(cls.panel, {}, itemsClasses)}>
+          {children}
+        </HPopover.Panel>
+      </HPopover>
+    );
+  },
+);

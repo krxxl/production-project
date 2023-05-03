@@ -42,7 +42,9 @@ describe('EditableProfileCard', () => {
     renderWithRouter(<EditableProfileCard id="1" />, options);
 
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.Edit'));
-    expect(screen.getByTestId('EditableProfileCardHeader.Cancel')).toBeInTheDocument();
+    expect(
+      screen.getByTestId('EditableProfileCardHeader.Cancel'),
+    ).toBeInTheDocument();
   });
 
   test('EditableProfileCard when click cancel data will reset', async () => {
@@ -54,7 +56,9 @@ describe('EditableProfileCard', () => {
     await userEvent.type(screen.getByTestId('ProfileCard.Firstname'), 'test1');
     expect(screen.getByTestId('ProfileCard.Firstname')).toHaveValue('test1');
 
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.Cancel'));
+    await userEvent.click(
+      screen.getByTestId('EditableProfileCardHeader.Cancel'),
+    );
     expect(screen.getByTestId('ProfileCard.Firstname')).toHaveValue('test');
   });
 
@@ -64,7 +68,9 @@ describe('EditableProfileCard', () => {
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.Edit'));
     await userEvent.clear(screen.getByTestId('ProfileCard.Firstname'));
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.Save'));
-    expect(screen.getByTestId('EditableProfileCard.Error.Paragraph')).toBeInTheDocument();
+    expect(
+      screen.getByTestId('EditableProfileCard.Error.Paragraph'),
+    ).toBeInTheDocument();
   });
 
   test('EditableProfileCard save when everything ok', async () => {

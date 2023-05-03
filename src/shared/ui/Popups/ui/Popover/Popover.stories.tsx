@@ -10,8 +10,10 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Popover>;
 
-const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />;
+const Template: ComponentStory<typeof Popover> = (args) => (
+  <Popover {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [(StoreDecorator({}))];
+Primary.decorators = [StoreDecorator({})];

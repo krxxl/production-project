@@ -8,8 +8,7 @@ import { THEMES } from '@/shared/const/theme';
 export default {
   title: 'Share/Button',
   component: Button,
-  argTypes: {
-  },
+  argTypes: {},
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
@@ -23,7 +22,7 @@ export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
   children: 'text',
 };
-PrimaryDark.decorators = [(ThemeDecorator(THEMES.DARK))];
+PrimaryDark.decorators = [ThemeDecorator(THEMES.DARK)];
 export const Clear = Template.bind({});
 Clear.args = {
   children: 'text',
@@ -41,7 +40,7 @@ ClearDark.args = {
   theme: ButtonTheme.CLEAR,
 };
 
-ClearDark.decorators = [(ThemeDecorator(THEMES.DARK))];
+ClearDark.decorators = [ThemeDecorator(THEMES.DARK)];
 
 export const Outline = Template.bind({});
 Outline.args = {
@@ -68,7 +67,7 @@ OutlineDark.args = {
   theme: ButtonTheme.OUTLINE,
 };
 
-OutlineDark.decorators = [(ThemeDecorator(THEMES.DARK))];
+OutlineDark.decorators = [ThemeDecorator(THEMES.DARK)];
 
 export const BACKGROUND = Template.bind({});
 BACKGROUND.args = {
@@ -116,4 +115,4 @@ DISABLEDDARK.args = {
   square: true,
   disabled: true,
 };
-DISABLEDDARK.decorators = [(ThemeDecorator(THEMES.DARK))];
+DISABLEDDARK.decorators = [ThemeDecorator(THEMES.DARK)];

@@ -11,7 +11,9 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Skeleton>;
 
-const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;
+const Template: ComponentStory<typeof Skeleton> = (args) => (
+  <Skeleton {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -31,7 +33,7 @@ PrimaryDark.args = {
   width: '100%',
   height: 200,
 };
-PrimaryDark.decorators = [(ThemeDecorator(THEMES.DARK))];
+PrimaryDark.decorators = [ThemeDecorator(THEMES.DARK)];
 
 export const CircleDark = Template.bind({});
 CircleDark.args = {
@@ -39,4 +41,4 @@ CircleDark.args = {
   width: 100,
   height: 100,
 };
-CircleDark.decorators = [(ThemeDecorator(THEMES.DARK))];
+CircleDark.decorators = [ThemeDecorator(THEMES.DARK)];

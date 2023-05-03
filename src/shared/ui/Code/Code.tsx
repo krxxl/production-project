@@ -6,7 +6,7 @@ import cls from './Code.module.scss';
 
 interface CodeProps {
   className?: string;
-  text: string
+  text: string;
 }
 
 export const Code = memo(({ className, text }: CodeProps) => {
@@ -16,12 +16,14 @@ export const Code = memo(({ className, text }: CodeProps) => {
 
   return (
     <pre className={classNames(cls.Code, {}, [className])}>
-      <Button onClick={onCopy} className={cls.copyBtn} theme={ButtonTheme.CLEAR}>
+      <Button
+        onClick={onCopy}
+        className={cls.copyBtn}
+        theme={ButtonTheme.CLEAR}
+      >
         <Copy className={cls.copyIcon} />
       </Button>
-      <code>
-        {text}
-      </code>
+      <code>{text}</code>
     </pre>
   );
 });

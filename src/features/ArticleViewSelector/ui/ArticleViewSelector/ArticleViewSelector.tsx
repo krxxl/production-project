@@ -9,9 +9,9 @@ import cls from './ArticleViewSelector.module.scss';
 import { ArticleView } from '@/entities/Article';
 
 interface ArticleViewSelectorProps {
-    className?: string;
-    view: ArticleView;
-    onViewClick: (view: ArticleView) => void
+  className?: string;
+  view: ArticleView;
+  onViewClick: (view: ArticleView) => void;
 }
 
 const viewTypes = [
@@ -25,29 +25,29 @@ const viewTypes = [
   },
 ];
 
-export const ArticleViewSelector = memo(({
-  className,
-  view,
-  onViewClick,
-}: ArticleViewSelectorProps) => {
-  const { t } = useTranslation();
-  const onClickHandler = (newView: ArticleView) => () => {
-    onViewClick(newView);
-  };
-  return (
-    <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
-      {viewTypes.map((viewType) => (
-        <Button
-          className={classNames('', { [cls.notActive]: view === viewType.view }, [className])}
-          theme={ButtonTheme.CLEAR}
-          onClick={onClickHandler(viewType.view)}
-          key={viewType.view}
-        >
-          <Icon
-            Svg={viewType.Icon}
-          />
-        </Button>
-      ))}
-    </div>
-  );
-});
+export const ArticleViewSelector = memo(
+  ({ className, view, onViewClick }: ArticleViewSelectorProps) => {
+    const { t } = useTranslation();
+    const onClickHandler = (newView: ArticleView) => () => {
+      onViewClick(newView);
+    };
+    return (
+      <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
+        {viewTypes.map((viewType) => (
+          <Button
+            className={classNames(
+              '',
+              { [cls.notActive]: view === viewType.view },
+              [className],
+            )}
+            theme={ButtonTheme.CLEAR}
+            onClick={onClickHandler(viewType.view)}
+            key={viewType.view}
+          >
+            <Icon Svg={viewType.Icon} />
+          </Button>
+        ))}
+      </div>
+    );
+  },
+);

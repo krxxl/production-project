@@ -2,6 +2,6 @@ import { ArticleDetailRecommendationsSchema } from './ArticleDetailRecommendatio
 import { ArticleDetailCommentsSchema } from './ArticleDetailCommentsSchema';
 
 export interface ArticleDetailPageSchema {
-  recommendations: ArticleDetailRecommendationsSchema,
-  comments: ArticleDetailCommentsSchema
+  recommendations: ArticleDetailRecommendationsSchema;
+  comments: ArticleDetailCommentsSchema;
 }

@@ -2,7 +2,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Article } from '../../types/article';
 
-export const fetchArticleDetailData = createAsyncThunk<Article, string | undefined, ThunkConfig<string>>(
+export const fetchArticleDetailData = createAsyncThunk<
+  Article,
+  string | undefined,
+  ThunkConfig<string>
+>(
   // женерики 1. что получаем, 2. что передаем (в данном случае ничего) 3. дженерик для апи, диспатча и для ошибки
   'articleDetail/fetchArticleDetailData',
   async (articleId, thunkAPI) => {

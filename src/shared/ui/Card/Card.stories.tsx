@@ -17,4 +17,4 @@ export const Primary = Template.bind({});
 Primary.args = {
   children: <Text text="dfgdf" title="aslkjdfbda" />,
 };
-Primary.decorators = [(StoreDecorator({}))];
+Primary.decorators = [StoreDecorator({})];

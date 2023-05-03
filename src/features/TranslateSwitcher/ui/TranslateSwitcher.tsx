@@ -4,27 +4,26 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 
 interface TranslateSwitcherProps {
-  className?: string,
-  short?: boolean
+  className?: string;
+  short?: boolean;
 }
 
-export const TranslateSwitcher = memo(({
-  className,
-  short = true,
-}: TranslateSwitcherProps) => {
-  const { t, i18n } = useTranslation();
+export const TranslateSwitcher = memo(
+  ({ className, short = true }: TranslateSwitcherProps) => {
+    const { t, i18n } = useTranslation();
 
-  const onChangeLanguageHandler = async () => {
-    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
-  };
+    const onChangeLanguageHandler = async () => {
+      i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+    };
 
-  return (
-    <Button
-      theme={ButtonTheme.CLEAR}
-      onClick={onChangeLanguageHandler}
-      className={classNames('', {}, [className])}
-    >
-      {t(short ? 'Короткий язык' : 'Язык')}
-    </Button>
-  );
-});
+    return (
+      <Button
+        theme={ButtonTheme.CLEAR}
+        onClick={onChangeLanguageHandler}
+        className={classNames('', {}, [className])}
+      >
+        {t(short ? 'Короткий язык' : 'Язык')}
+      </Button>
+    );
+  },
+);
