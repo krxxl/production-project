@@ -14,6 +14,7 @@ import cls from './ArticleDetailPage.module.scss';
 import { articleDetailPageReducer } from '../../model/slice';
 import { ArticleDetailComments } from '../ArticleDetailComments/ArticleDetailComments';
 import { ArticleRating } from '@/features/articleRating';
+import { getFeatureFlag } from '@/shared/lib/features';
 
 interface ArticleDetailPageProps {
   className?: string;
@@ -25,6 +26,8 @@ const defaultReducers: ReducersList = {
 
 const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
   const { id } = useParams<{ id: string }>();
+  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+  // const isArticleRatingEnabled = true;
 
   if (!id) {
     return null;
@@ -36,7 +39,7 @@ const ArticleDetailPage = memo(({ className }: ArticleDetailPageProps) => {
         <VStack max gap="16">
           <ArticleDetailPageHeader />
           <ArticleDetail id={id} />
-          <ArticleRating articleId={id} />
+          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
           <ArticleRecommendationsList />
           <ArticleDetailComments id={id} />
         </VStack>

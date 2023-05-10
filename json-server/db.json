@@ -569,6 +569,10 @@
       "username": "admin",
       "password": "123",
       "roles": ["ADMIN"],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      },
       "avatar": "https://pixelbox.ru/wp-content/uploads/2022/05/russia-avatar-pixelbox.ru-14.jpg"
     },
     {
@@ -576,6 +580,10 @@
       "username": "user",
       "password": "123",
       "roles": ["USER"],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": false
+      },
       "avatar": "https://pixelbox.ru/wp-content/uploads/2022/05/russia-avatar-pixelbox.ru-14.jpg"
     },
     {
@@ -583,6 +591,10 @@
       "username": "manager",
       "password": "123",
       "roles": ["MANAGER"],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": false
+      },
       "avatar": "https://pixelbox.ru/wp-content/uploads/2022/05/russia-avatar-pixelbox.ru-14.jpg"
     },
     {
@@ -590,6 +602,10 @@
       "username": "testuser",
       "password": "123",
       "roles": ["USER"],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": true
+      },
       "avatar": "https://pixelbox.ru/wp-content/uploads/2022/05/russia-avatar-pixelbox.ru-14.jpg"
     }
   ],
