@@ -2,6 +2,8 @@ import { THEMES } from '@/shared/const/theme';
 
 export interface JsonSettings {
   theme?: THEMES;
-  isFirstVisit?: true;
-  settingsPageHasBeenOpen?: false;
+  isFirstVisit?: boolean;
+  settingsPageHasBeenOpen?: boolean;
+
+  isArticlesPageWasOpened?: boolean;
 }

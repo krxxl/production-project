@@ -615,7 +615,8 @@
       },
       "avatar": "https://pixelbox.ru/wp-content/uploads/2022/05/russia-avatar-pixelbox.ru-14.jpg",
       "jsonSettings": {
-        "theme": "app_dark_theme"
+        "theme": "app_dark_theme",
+        "isArticlesPageWasOpened": true
       }
     },
     {
