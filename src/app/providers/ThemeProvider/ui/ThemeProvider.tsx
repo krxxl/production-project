@@ -9,13 +9,16 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 const ThemeProvider = ({ children, defTheme }: ThemeProviderProps) => {
-  const { theme: defaultTheme = THEMES.LIGHT } = useSelector(getJsonSettings);
+  const { theme: defaultTheme } = useSelector(getJsonSettings);
   const [isThemeInited, setThemeInited] = useState(false);
 
-  const [theme, setTheme] = useState<THEMES>(defTheme || defaultTheme);
+  const [theme, setTheme] = useState<THEMES>(
+    defaultTheme || THEMES.LIGHT || defTheme,
+  );
 
   useEffect(() => {
-    if (!isThemeInited) {
+    if (!isThemeInited && defaultTheme) {
+      document.body.className = defaultTheme;
       setTheme(defaultTheme);
       setThemeInited(true);
     }

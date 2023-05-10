@@ -11,6 +11,7 @@ import { userReducer, userActions } from './model/slice/userSlice';
 import { saveJsonSettings } from './model/services/saveJsonSettings';
 
 export type { UserSchema, User } from './model/types/userSchema';
+export { initAuthData } from './model/services/initAuthData';
 
 export {
   userReducer,
