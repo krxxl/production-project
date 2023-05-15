@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { NavLink, NavLinkTheme } from '@/shared/ui/NavLink';
+import { NavLink, NavLinkTheme } from '@/shared/ui/deprecated/NavLink';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUser } from '@/entities/User';
 import { SidebarItemsType } from '../../model/types/sidebar';

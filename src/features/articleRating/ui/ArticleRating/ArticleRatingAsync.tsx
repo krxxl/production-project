@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { ArticleRatingProps } from './ArticleRating';
-import { Spinner } from '@/shared/ui/Spinner';
+import { Spinner } from '@/shared/ui/deprecated/Spinner';
 
 export const ArticleRatingLazy = lazy(() => import('./ArticleRating'));
 
