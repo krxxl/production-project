@@ -8,6 +8,8 @@ import { VStack } from '@/shared/ui/Stack';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems/getSidebarItems';
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures';
+import { AppLogo } from '@/shared/ui/AppLogo';
 
 interface SidebarProps {
   className?: string;
@@ -20,31 +22,48 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     setCollapsed((prevState) => !prevState);
   };
   return (
-    <aside
-      data-testid="sidebar"
-      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-        className,
-      ])}
-    >
-      <VStack role="navigation" gap="8" className={cls.links}>
-        {sidebarItems.map((item) => (
-          <SidebarItem key={item.path} item={item} collapsed={collapsed} />
-        ))}
-      </VStack>
-      <Button
-        data-testid="collapsed"
-        theme={ButtonTheme.BACKGROUND_INVERTED}
-        size={ButtonSize.L}
-        onClick={onCollapsedHandler}
-        className={cls.sidebarBtn}
-        square
-      >
-        {collapsed ? '>' : '<'}
-      </Button>
-      <div className={cls.switchers}>
-        <ThemeSwitcher />
-        <TranslateSwitcher short={collapsed} className={cls.translate} />
-      </div>
-    </aside>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <aside
+          data-testid="sidebar"
+          className={classNames(
+            cls.SidebarRedesigned,
+            { [cls.collapsed]: collapsed },
+            [className],
+          )}
+        >
+          <AppLogo className={cls.appLogo} />
+        </aside>
+      }
+      off={
+        <aside
+          data-testid="sidebar"
+          className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+            className,
+          ])}
+        >
+          <VStack role="navigation" gap="8" className={cls.links}>
+            {sidebarItems.map((item) => (
+              <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+            ))}
+          </VStack>
+          <Button
+            data-testid="collapsed"
+            theme={ButtonTheme.BACKGROUND_INVERTED}
+            size={ButtonSize.L}
+            onClick={onCollapsedHandler}
+            className={cls.sidebarBtn}
+            square
+          >
+            {collapsed ? '>' : '<'}
+          </Button>
+          <div className={cls.switchers}>
+            <ThemeSwitcher />
+            <TranslateSwitcher short={collapsed} className={cls.translate} />
+          </div>
+        </aside>
+      }
+    />
   );
 });

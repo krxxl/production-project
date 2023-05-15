@@ -44,7 +44,7 @@ export const ArticleViewSelector = memo(
             onClick={onClickHandler(viewType.view)}
             key={viewType.view}
           >
-            <Icon Svg={viewType.Icon} />
+            <Icon Svg={viewType.Icon} width={24} height={24} />
           </Button>
         ))}
       </div>

@@ -12,6 +12,7 @@ import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
 import { getRouteArticleNew } from '@/shared/const/router';
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures';
 
 interface NavbarProps {
   className?: string;
@@ -29,24 +30,37 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (user) {
     return (
-      <header className={classNames(cls.Navbar, {}, [className])}>
-        <Text
-          title={t('KR')}
-          theme={TextTheme.INVERTED}
-          className={cls.appTitle}
-        />
-        <NavLink
-          to={getRouteArticleNew()}
-          theme={NavLinkTheme.SECONDARY}
-          className={cls.createArticleBtn}
-        >
-          {t('Новая статья')}
-        </NavLink>
-        <HStack gap="16" className={cls.actions}>
-          <NotificationButton />
-          <AvatarDropdown />
-        </HStack>
-      </header>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+            <HStack gap="16" className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+        off={
+          <header className={classNames(cls.Navbar, {}, [className])}>
+            <Text
+              title={t('KR')}
+              theme={TextTheme.INVERTED}
+              className={cls.appTitle}
+            />
+            <NavLink
+              to={getRouteArticleNew()}
+              theme={NavLinkTheme.SECONDARY}
+              className={cls.createArticleBtn}
+            >
+              {t('Новая статья')}
+            </NavLink>
+            <HStack gap="16" className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+      />
     );
   }
 
