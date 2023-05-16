@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes, memo, useEffect, useRef } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { HStack } from '../Stack/HStack/HStack';
+import { HStack } from '../../redesigned/Stack/HStack/HStack';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<

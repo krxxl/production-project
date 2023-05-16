@@ -17,7 +17,7 @@ import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import Calendar from '@/shared/assets/icons/calendarIcon.svg';
 import Eye from '@/shared/assets/icons/eyeIcon.svg';
 import { Icon } from '@/shared/ui/Icon';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleBlockType } from '../../model/consts/consts';
 import { ArticleBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
