@@ -1,9 +1,12 @@
 import React, { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { ArticleView } from '../../model/consts/consts';
 import cls from './ArticleListItem.module.scss';
+import { toggleFeatures } from '@/shared/lib/features';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 
 interface ArticleListItemSkeletonProps {
   className?: string;
@@ -12,11 +15,26 @@ interface ArticleListItemSkeletonProps {
 
 export const ArticleListItemSkeleton = memo(
   ({ className, view }: ArticleListItemSkeletonProps) => {
+    const mainClass = toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => cls.ArticleListItemRedesigned,
+      off: () => cls.ArticleListItem,
+    });
+
+    const Skeleton = toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => SkeletonRedesigned,
+      off: () => SkeletonDeprecated,
+    });
+    const Card = toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => CardRedesigned,
+      off: () => CardDeprecated,
+    });
+
     if (view === ArticleView.BIG) {
       return (
-        <div
-          className={classNames(cls.ArticleListItem, {}, [className, cls.big])}
-        >
+        <div className={classNames(mainClass, {}, [className, cls.big])}>
           <Card className={cls.card}>
             <div className={cls.header}>
               <Skeleton width={30} height={30} border="50%" />
@@ -38,9 +56,7 @@ export const ArticleListItemSkeleton = memo(
     }
 
     return (
-      <div
-        className={classNames(cls.ArticleListItem, {}, [className, cls.small])}
-      >
+      <div className={classNames(mainClass, {}, [className, cls.small])}>
         <Card className={cls.card}>
           <div className={cls.imgWrapper}>
             <Skeleton width={200} height={200} className={cls.image} />

@@ -6,10 +6,10 @@ import { Card } from '@/shared/ui/deprecated/Card';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { StarRating } from '@/shared/ui/deprecated/StarRating';
 import { Text } from '@/shared/ui/deprecated/Text';
-import { Modal } from '@/shared/ui/Modal';
-import { Input } from '@/shared/ui/Input';
+import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Input } from '@/shared/ui/deprecated/Input';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 
 interface RatingCardProps {
   className?: string;
@@ -77,7 +77,7 @@ export const RatingCard = memo(
     return (
       <Card
         data-testid="RatingCard"
-        fullWidth
+        max
         className={classNames('', {}, [className])}
       >
         <VStack gap="16" max justify="center" align="center">

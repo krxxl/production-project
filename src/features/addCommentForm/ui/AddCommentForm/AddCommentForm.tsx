@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Input } from '@/shared/ui/Input';
+import { Input } from '@/shared/ui/deprecated/Input';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import {
@@ -52,7 +52,7 @@ const AddCommentForm = memo(
           data-testid="AddCommentForm"
           max
           align="center"
-          justify="space"
+          justify="between"
           className={classNames(cls.AddCommentForm, {}, [className])}
         >
           <Input
