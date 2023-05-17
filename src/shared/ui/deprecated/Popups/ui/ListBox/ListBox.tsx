@@ -15,7 +15,7 @@ export interface Option {
 interface ListBoxProps {
   className?: string;
   label?: string;
-  options: Option[];
+  items: Option[];
   value?: string;
   onChange?: (value: string) => void;
   readonly?: boolean;
@@ -29,7 +29,7 @@ interface ListBoxProps {
 export const ListBox = memo(
   ({
     className,
-    options,
+    items,
     label,
     value,
     readonly = false,
@@ -59,7 +59,7 @@ export const ListBox = memo(
           <Listbox.Options
             className={classNames(cls.options, {}, optionsClasses)}
           >
-            {options.map((item) => (
+            {items.map((item) => (
               <Listbox.Option
                 key={item.value}
                 value={item.value}
