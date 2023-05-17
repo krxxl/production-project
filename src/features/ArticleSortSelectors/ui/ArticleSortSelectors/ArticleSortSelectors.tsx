@@ -5,6 +5,10 @@ import { Option, Select } from '@/shared/ui/deprecated/Select';
 import { OrderType } from '@/shared/types/types';
 import cls from './ArticleSortSelectors.module.scss';
 import { ArticleSortField } from '@/entities/Article';
+import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 interface ArticleSortSelectorsProps {
   className?: string;
@@ -57,20 +61,48 @@ export const ArticleSortSelectors = memo(
     );
 
     return (
-      <div className={classNames(cls.ArticleSortSelectors, {}, [className])}>
-        <Select
-          value={sort}
-          onChange={onChangeSort}
-          options={orderFieldOptions}
-          label={t('Сортировать по:')}
-        />
-        <Select
-          value={order}
-          onChange={onChangeOrder}
-          label={t('по')}
-          options={orderOptions}
-        />
-      </div>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <div
+            className={classNames(cls.ArticleSortSelectorRedesigned, {}, [
+              className,
+            ])}
+          >
+            <VStack gap="8">
+              <Text text={t('Сортировать по:')} />
+              <ListBox
+                items={orderFieldOptions}
+                value={sort}
+                onChange={onChangeSort}
+              />
+              <ListBox
+                items={orderOptions}
+                value={order}
+                onChange={onChangeOrder}
+              />
+            </VStack>
+          </div>
+        }
+        off={
+          <div
+            className={classNames(cls.ArticleSortSelectors, {}, [className])}
+          >
+            <Select
+              value={sort}
+              onChange={onChangeSort}
+              options={orderFieldOptions}
+              label={t('Сортировать по:')}
+            />
+            <Select
+              value={order}
+              onChange={onChangeOrder}
+              label={t('по')}
+              options={orderOptions}
+            />
+          </div>
+        }
+      />
     );
   },
 );

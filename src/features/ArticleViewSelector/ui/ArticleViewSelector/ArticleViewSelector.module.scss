@@ -8,3 +8,9 @@
     opacity: 0.4;
   }
 }
+
+.ArticleViewSelectorRedesigned {
+  .notSelected {
+    color: var(--light-bg-redesigned);
+  }
+}
