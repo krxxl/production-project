@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 import { LoginFormAsync } from '../LoginForm/LoginFormAsync';
 import { Spinner } from '@/shared/ui/deprecated/Spinner';
 
