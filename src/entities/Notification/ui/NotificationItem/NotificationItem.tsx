@@ -6,7 +6,7 @@ import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
 import cls from './NotificationItem.module.scss';
 import { Notification } from '../../model/types/notification';
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures';
+import { ToggleFeatures } from '@/shared/lib/features/components/ToggleFeatures/ToggleFeatures';
 import { Card } from '@/shared/ui/redesigned/Card';
 
 interface NotificationItemProps {

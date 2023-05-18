@@ -8,7 +8,7 @@ import { SidebarItemsType } from '../../model/types/sidebar';
 import cls from './SidebarItem.module.scss';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures';
+import { ToggleFeatures } from '@/shared/lib/features/components/ToggleFeatures/ToggleFeatures';
 
 interface SidebarItemProps {
   item: SidebarItemsType;

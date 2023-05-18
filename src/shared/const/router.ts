@@ -9,12 +9,15 @@ export enum AppRoutes {
   FORBIDDEN = 'forbidden',
   ADMIN_PANEL = 'admin_panel',
 
+  SETTINGS = 'settings',
+
   // last route
   NOT_FOUND_PAGE = 'not_found_page',
 }
 
 export const getRouteMain = () => '/';
 export const getRouteAbout = () => '/about';
+export const getRouteSettings = () => '/settings';
 export const getRouteProfile = (id: string) => `/profile/${id}`;
 export const getRouteArticles = () => '/articles';
 export const getRouteForbidden = () => '/forbidden';

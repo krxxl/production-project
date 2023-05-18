@@ -15,7 +15,7 @@ import cls from './ArticleDetailPage.module.scss';
 import { articleDetailPageReducer } from '../../model/slice';
 import { ArticleDetailComments } from '../ArticleDetailComments/ArticleDetailComments';
 import { ArticleRating } from '@/features/articleRating';
-import { ToggleFeatures } from '@/shared/lib/features/ToggleFeatures/ToggleFeatures';
+import { ToggleFeatures } from '@/shared/lib/features/components/ToggleFeatures/ToggleFeatures';
 import { Card } from '@/shared/ui/deprecated/Card';
 
 interface ArticleDetailPageProps {
