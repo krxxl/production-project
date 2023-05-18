@@ -1,8 +1,10 @@
 import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
-import { Icon } from '../Icon/Icon';
+import { Icon as IconDeprecated } from '../Icon/Icon';
 import Star from '@/shared/assets/icons/star.svg';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import { Icon } from '../../redesigned/Icon';
 
 interface StarRatingProps {
   className?: string;
@@ -12,10 +14,7 @@ interface StarRatingProps {
 }
 
 const stars = [1, 2, 3, 4, 5];
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
+
 export const StarRating = memo(
   ({ className, onSelect, size = 30, selectedStars = 0 }: StarRatingProps) => {
     const [curStarsCount, setCurStarsCount] = useState(selectedStars);
@@ -42,25 +41,42 @@ export const StarRating = memo(
     };
 
     return (
-      <div className={classNames('', {}, [className])}>
-        {stars.map((star) => (
-          <Icon
-            className={classNames(
+      <div
+        className={classNames(
+          toggleFeatures({
+            name: 'isAppRedesigned',
+            off: () => cls.StarRating,
+            on: () => cls.StarRatingRedesigned,
+          }),
+          {},
+          [className],
+        )}
+      >
+        {stars.map((star) => {
+          const props = {
+            className: classNames(
               cls.starEmpty,
               { [cls.selected]: isSelected },
               [curStarsCount >= star ? cls.hovered : cls.normal],
-            )}
-            width={size}
-            height={size}
-            key={star}
-            Svg={Star}
-            onMouseEnter={onHover(star)}
-            onMouseLeave={onLeave}
-            onClick={onClick(star)}
-            data-testid={`StarRating.${star}`}
-            data-selected={curStarsCount >= star}
-          />
-        ))}
+            ),
+            Svg: Star,
+            width: size,
+            height: size,
+            key: star,
+            onMouseEnter: onHover(star),
+            onMouseLeave: onLeave,
+            onClick: onClick(star),
+            'data-testid': `StarRating.${star}`,
+            'data-selected': curStarsCount >= star,
+          };
+          return (
+            <ToggleFeatures
+              feature="isAppRedesigned"
+              on={<Icon clickable={!isSelected} {...props} />}
+              off={<IconDeprecated {...props} />}
+            />
+          );
+        })}
       </div>
     );
   },

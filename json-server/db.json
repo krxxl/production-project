@@ -599,6 +599,12 @@
       "text": "dfgsdg",
       "userId": "2",
       "id": "Cddf1CZ"
+    },
+    {
+      "articleId": "6",
+      "text": "cxfhdxfhxghdfgh",
+      "userId": "1",
+      "id": "9-SJR2Z"
     }
   ],
   "users": [
@@ -751,6 +757,12 @@
       "rate": 3,
       "feedback": "nhfn",
       "id": "jHapGqw"
+    },
+    {
+      "articleId": "6",
+      "userId": "1",
+      "rate": 5,
+      "id": "LmOZ_tn"
     }
   ],
   "profile-ratings": [

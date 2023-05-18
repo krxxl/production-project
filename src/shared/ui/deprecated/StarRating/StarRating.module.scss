@@ -2,14 +2,26 @@
   cursor: pointer;
 }
 
-.normal {
-  fill: none;
-}
+.StarRating {
+  .normal {
+    fill: none;
+  }
 
-.hovered {
-  fill: var(--primary-color);
+  .hovered {
+    fill: var(--primary-color);
+  }
 }
 
 .selected {
   cursor: default;
+}
+
+.StarRatingRedesigned {
+  .normal {
+    fill: none;
+  }
+
+  .hovered {
+    fill: var(--icon-redesigned);
+  }
 }
