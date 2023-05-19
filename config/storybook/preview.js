@@ -1,11 +1,10 @@
 import { addDecorator } from '@storybook/react';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import {
-  RouterDecorator,
-} from '../../src/shared/config/storybook/RouterDeacorator/RouterDecorator';
+import { RouterDecorator } from '../../src/shared/config/storybook/RouterDeacorator/RouterDecorator';
 import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 import { THEMES } from '../../src/shared/const/theme';
+import { FeaturesFlagsDecorator } from '../../src/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -29,3 +28,4 @@ addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(THEMES.LIGHT));
 addDecorator(RouterDecorator);
 addDecorator(SuspenseDecorator);
+addDecorator(FeaturesFlagsDecorator({}));
